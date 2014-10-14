@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+for i in [0-9][0-9]-*; do
+	if [ -x "$i" ]; then
+		case "$i" in
+		  *~|*.orig|*.rej|*.skip)
+			;;
+		  *)
+			"./$i"
+			;;
+		esac
+	fi
+done

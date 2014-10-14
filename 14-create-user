@@ -1,0 +1,11 @@
+#!/bin/bash -eux
+
+. 00-common
+
+chroot "$ROOTDIR" useradd -m uhu
+chroot "$ROOTDIR" passwd -d uhu
+chroot "$ROOTDIR" passwd -d root
+
+if [ -f "$ROOTDIR"/etc/gdm/custom.conf ]; then
+	sed -ri -e  '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=uhu/' "$ROOTDIR"/etc/gdm/custom.conf
+fi

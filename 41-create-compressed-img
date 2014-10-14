@@ -1,0 +1,15 @@
+#!/bin/bash -eux
+
+. 00-common
+
+# umount image
+for i in 1 2 3; do
+	umount    "$ROOTDIR/dev"	2>/dev/null || true
+	umount -d "$ROOTDIR/mnt"	2>/dev/null || true
+	umount    "$ROOTDIR/proc"	2>/dev/null || true
+	umount    "$ROOTDIR/sys"	2>/dev/null || true
+	umount    "$ROOTDIR/tmp"	2>/dev/null || true
+	umount -d "$ROOTDIR"		2>/dev/null || true
+done
+
+mksquashfs "$IMG" "$ROIMG" -b 1048576 -comp xz

@@ -1,0 +1,18 @@
+#!/bin/bash -eux
+
+. 00-common
+
+SIZE="6400M" # image size in dd format
+
+dd if=/dev/zero of="$IMG" bs=1 seek="$SIZE" count=0
+
+loopdev="$(losetup -f)"
+
+losetup "$loopdev" "$IMG"
+mkfs.ext4 -E resize=4294967295 -O uninit_bg,^has_journal "$loopdev"
+tune2fs -i0 -c0 -m2 -LUHU "$loopdev"
+mkdir -p "$ROOTDIR"
+mount "$loopdev" "$ROOTDIR"
+mkdir -p "$TMPDIR"
+mkdir -p "$ROOTDIR/tmp"
+mount --bind "$TMPDIR" "$ROOTDIR/tmp"

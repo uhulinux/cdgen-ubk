@@ -1,0 +1,93 @@
+#!/bin/bash -eux
+
+. 00-common
+
+# copy img
+cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
+cd "$DVDDIR/"
+md5sum -b "$IMG_NAME" > "$DVDDIR/md5sum"
+sha256sum -b "$IMG_NAME" > "$DVDDIR/shasum"
+cd -
+
+echo "Creating ISO image..."
+
+if [ ${#UHU_RELEASE_FULL} -gt 5 ]; then
+	label="UHU $UHU_RELEASE_FULL" # e.g. "UHU 2.0-test1"
+else
+	label="UHU-Linux $UHU_RELEASE_FULL" # e.g. "UHU-Linux 2.0"
+fi
+label_underscore="${label// /_}"
+
+
+if [ -d "$DVDDIR/boot" ]; then
+	cat <<-END >"$DVDDIR/sortfile"
+		/boot/grub/stage2_eltorito 903
+		/boot/grub/boot.catalog 902
+		/boot/grub/menu.lst 901
+		/boot/grub 900
+		/boot/isolinux/isolinux.bin 803
+		/boot/isolinux/boot.catalog 802
+		/boot/isolinux/isolinux.cfg 801
+		/boot/isolinux 800
+		/boot/themes/uhu-installer 701
+		/boot/themes 700
+		/boot/memtest 501
+		/boot/bzImage 402
+		/boot/initrd 401
+		/boot 400
+		/autorun.inf 391
+		/uhu.ico 390
+		/medium.txt 381
+		/discdate.txt 380
+		/Release 373
+		/Packages 372
+		/Packages.gz 371
+		/Contents.gz 370
+		/dostools 360
+		/doc 350
+	END
+	if [ -d "$DVDDIR/boot/grub" ]; then
+		bootoptions="-b boot/grub/stage2_eltorito -c boot/grub/boot.catalog"
+	else
+		bootoptions="-b boot/isolinux/isolinux.bin -c boot/isolinux/boot.cat"
+	fi
+	bootoptions="$bootoptions -no-emul-boot -boot-load-size 4 -boot-info-table"
+	bootoptions="$bootoptions -sort "$DVDDIR"/sortfile"
+else
+	bootoptions=""
+fi
+
+ISODEBUG=1 \
+#chroot "$DVDDIR" \
+mkisofs \
+	-o "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.iso" \
+	-V "$label" \
+	-A "$label" \
+	-publisher "UHU-Linux Team" \
+	-p "UHU-Linux DVD Generator" \
+	-J -T -hide-joliet-trans-tbl \
+	-allow-limited-size \
+	-r -hide-rr-moved \
+	$bootoptions \
+	"$DVDDIR"
+
+isohybrid "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.iso"
+sync
+
+echo -n "Calculating checksums..."
+cd "$WORKDIR"
+md5sum -b "uhu-linux-$UHU_RELEASE_FULL.iso" > "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.md5" &
+sha256sum -b "uhu-linux-$UHU_RELEASE_FULL.iso" > "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.sha" &
+
+wait
+echo
+
+# umount image
+for i in 1 2 3; do
+	umount    "$ROOTDIR/dev"	2>/dev/null || true
+	umount -d "$ROOTDIR/mnt"	2>/dev/null || true
+	umount    "$ROOTDIR/proc"	2>/dev/null || true
+	umount    "$ROOTDIR/sys"	2>/dev/null || true
+	umount    "$ROOTDIR/tmp"	2>/dev/null || true
+	umount -d "$ROOTDIR"		2>/dev/null || true
+done

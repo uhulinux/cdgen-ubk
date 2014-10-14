@@ -1,0 +1,17 @@
+#!/bin/bash -eux
+
+. 00-common
+
+#
+# Initialize dpkg and apt-get.
+#
+
+mkdir -p "$ROOTDIR"/var/lib/dpkg/{info,updates}
+touch "$ROOTDIR"/var/lib/dpkg/{available,status}
+mkdir -p "$ROOTDIR"/var/state/apt/lists/partial
+mkdir -p "$ROOTDIR"/var/cache/apt/archives/partial
+
+apt-get \
+	$apt_options \
+	-o Debug::NoLocking="true" \
+	update
