@@ -59,7 +59,7 @@ if [ -n "${CDGEN_APT_PREFERENCES:-}" ]; then
 else
 	apt_preferences=""
 fi
-apt_statedir="-o Dir::State=$ROOTDIR/var/state/apt"
+apt_statedir="-o Dir::State=$ROOTDIR/var/lib/apt"
 apt_cachedir="-o Dir::Cache=$ROOTDIR/var/cache/apt"
 apt_options="$apt_sourcelist $apt_preferences $apt_statedir $apt_cachedir"
 
