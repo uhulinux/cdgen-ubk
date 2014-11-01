@@ -2,7 +2,8 @@
 
 . 00-common
 
-SIZE="6400M" # image size in dd format
+# SIZE="6400M" # image size in dd format
+SIZE="7100M" # image size in dd format
 
 dd if=/dev/zero of="$IMG" bs=1 seek="$SIZE" count=0
 
