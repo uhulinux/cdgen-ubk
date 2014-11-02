@@ -4,13 +4,10 @@
 
 mkdir -p "$DVDDIR"
 
-if [ ${#UHU_RELEASE_FULL} -gt 5 ]; then
-	label="UHU $UHU_RELEASE_FULL" # e.g. "UHU 2.0-test1"
-else
-	label="UHU-Linux $UHU_RELEASE_FULL" # e.g. "UHU-Linux 2.0"
-fi
-label_underscore="${label// /_}"
 
+label="UHU-Linux $UHU_RELEASE_FULL" # e.g. "UHU-Linux 2.0"
+label_underscore="${label// /_}"
+release_file="${label// /-}"
 
 # boot isolinux config
 mkdir -p "$DVDDIR"/boot
@@ -95,8 +92,6 @@ cp -a "$ROOTDIR/usr/share/syslinux/isolinux.bin" "$DVDDIR/boot/isolinux/isolinux
 for i in ldlinux.c32 libcom32.c32 libutil.c32 vesamenu.c32; do
 	cp -a "$ROOTDIR/usr/share/syslinux/$i" "$DVDDIR/boot/isolinux/"
 done
-#cp -a "$ROOTDIR/isolinux.cfg" "$DVDDIR/boot/isolinux/"
-#cp "$ROOTDIR/boot/help.txt" "$DVDDIR/boot/isolinux/help.txt"
 cp -a "$ROOTDIR/boot/themes/bg.png" "$DVDDIR/boot/themes/"
 cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
 cd "$DVDDIR/"
@@ -147,10 +142,10 @@ fi
 ISODEBUG=1 \
 #chroot "$DVDDIR" \
 mkisofs \
-	-o "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.iso" \
+	-o "$WORKDIR/$release_file.iso" \
 	-V "$label" \
 	-A "$label" \
-	-publisher "UHU-Linux Team" \
+	-publisher "UHU-Linux Baráti Kör" \
 	-p "UHU-Linux DVD Generator" \
 	-J -T -hide-joliet-trans-tbl \
 	-allow-limited-size \
@@ -158,13 +153,13 @@ mkisofs \
 	$bootoptions \
 	"$DVDDIR"
 
-isohybrid "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.iso"
+isohybrid "$WORKDIR/$release_file.iso"
 sync
 
 echo -n "Calculating checksums..."
 cd "$WORKDIR"
-md5sum -b "uhu-linux-$UHU_RELEASE_FULL.iso" > "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.md5" &
-sha256sum -b "uhu-linux-$UHU_RELEASE_FULL.iso" > "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.sha" &
+md5sum -b "$release_file.iso" > "$WORKDIR/$release_file.md5" &
+sha256sum -b "$release_file.iso" > "$WORKDIR/$release_file.sha" &
 
 cd -
 
