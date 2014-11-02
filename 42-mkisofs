@@ -22,7 +22,7 @@ timeout 100
 
 f1 help.txt
 
-menu title UHU-Linux $UHU_RELEASE_FULL $(date '+%F %T')
+menu title UHU-Linux $UHU_RELEASE_FULL ($(date '+%F'))
 menu background /boot/themes/bg.png
 menu tabmsg Press [F1] for help, or [Tab] to edit options
 

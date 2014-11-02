@@ -11,8 +11,6 @@ if [ $(id -u) != 0 ]; then
 	exit 1
 fi
 
-export MAGICDATE="2008/01/11 00:00:00 UTC"
-
 export LC_ALL=en_US.UTF-8
 export LANG=C
 unset  LANGUAGE
@@ -30,7 +28,7 @@ WORKDIR="$PWD/Work"
 ROOTDIR="$WORKDIR/root"
 TMPDIR="$WORKDIR/tmp"
 DVDDIR="$WORKDIR/DVD"
-INSTALLERDIR="$WORKDIR/Installer.allfiles"
+
 IMG_NAME="uhulinux.img"
 ROIMG_NAME="uhulinux.roimg"
 IMG="$WORKDIR/$IMG_NAME"
