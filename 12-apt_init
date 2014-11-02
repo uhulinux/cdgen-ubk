@@ -6,10 +6,10 @@
 # Initialize dpkg and apt-get.
 #
 
-mkdir -p "$ROOTDIR"/var/lib/dpkg/{info,updates}
-touch "$ROOTDIR"/var/lib/dpkg/{available,status}
-mkdir -p "$ROOTDIR"/var/lib/apt/lists/partial
-mkdir -p "$ROOTDIR"/var/cache/apt/archives/partial
+mkdir -p "$ROOTDIR$DPKG_STATEDIR"/{info,updates}
+touch "$ROOTDIR$DPKG_STATEDIR"/{available,status}
+mkdir -p "$ROOTDIR$APT_STATEDIR"/lists/partial
+mkdir -p "$ROOTDIR$APT_CACHEDIR"/archives/partial
 
 apt-get \
 	$apt_options \

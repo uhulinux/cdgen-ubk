@@ -39,6 +39,10 @@ ROIMG="$WORKDIR/$ROIMG_NAME"
 PACKAGES_ALL="$WORKDIR"/packages_all.txt
 PACKAGES_CD="$WORKDIR"/packages_cd.txt
 
+APT_STATEDIR="/var/lib/apt"
+APT_CACHEDIR="/var/cache/apt"
+DPKG_STATEDIR="/var/lib/dpkg"
+
 if [[ -f "$WORKDIR/UHU_RELEASE_FULL" ]]; then
 	UHU_RELEASE_FULL="$(<"$WORKDIR/UHU_RELEASE_FULL")"
 	UHU_RELEASE="${UHU_RELEASE_FULL%%-*}" # e.g. 2.0
@@ -59,8 +63,8 @@ if [ -n "${CDGEN_APT_PREFERENCES:-}" ]; then
 else
 	apt_preferences=""
 fi
-apt_statedir="-o Dir::State=$ROOTDIR/var/lib/apt"
-apt_cachedir="-o Dir::Cache=$ROOTDIR/var/cache/apt"
+apt_statedir="-o Dir::State=$ROOTDIR$APT_STATEDIR"
+apt_cachedir="-o Dir::Cache=$ROOTDIR$APT_CACHEDIR"
 apt_options="$apt_sourcelist $apt_preferences $apt_statedir $apt_cachedir"
 
 echo -e "  \\e[1m${0##*/} ...\\e[0m"
