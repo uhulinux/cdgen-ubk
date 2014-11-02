@@ -1,0 +1,4 @@
+patched packages:
+- uhu-installer
+- gsettings-desktop-schemas: screensaver aktiválás tiltása
+- gnome-settings-daemon: screen dim tiltása
