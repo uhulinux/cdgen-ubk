@@ -16,4 +16,7 @@ rmdir "$ROOTDIR"
 
 rm -f "$IMG"
 rm -f "$ROIMG"
+rm -f "$PACKAGES_ALL"
+rm -f "$PACKAGES_CD"
+rm -f "$WORKDIR"/*.{iso,md5,sha}
 rm -rf --one-file-system "$DVDDIR"
