@@ -2,14 +2,7 @@
 
 . 00-common
 
-# copy img
-cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
-cd "$DVDDIR/"
-md5sum -b "$IMG_NAME" > "$DVDDIR/md5sum"
-sha256sum -b "$IMG_NAME" > "$DVDDIR/shasum"
-cd -
-
-echo "Creating ISO image..."
+mkdir -p "$DVDDIR"
 
 if [ ${#UHU_RELEASE_FULL} -gt 5 ]; then
 	label="UHU $UHU_RELEASE_FULL" # e.g. "UHU 2.0-test1"
@@ -18,6 +11,100 @@ else
 fi
 label_underscore="${label// /_}"
 
+
+# boot isolinux config
+mkdir -p "$DVDDIR"/boot
+ 
+cat <<_END_ >"$DVDDIR/isolinux.cfg"
+
+default vesamenu.c32
+timeout 100
+
+f1 help.txt
+
+menu title UHU-Linux $UHU_RELEASE_FULL $(date '+%F %T')
+menu background /boot/themes/bg.png
+menu tabmsg Press [F1] for help, or [Tab] to edit options
+
+menu color border 0 #ffffffff #00000000
+menu color sel 7 #ffffffff #ff000000
+menu color title 0 #ffffffff #00000000
+menu color tabmsg 0 #ffffffff #00000000
+menu color unsel 0 #ffffffff #00000000
+menu color hotsel 0 #ff000000 #ffffffff
+menu color hotkey 7 #ffffffff #ff000000
+menu color timeout_msg 0 #ffffffff #00000000
+menu color timeout 0 #ffffffff #00000000
+menu color cmdline 0 #ffffffff #00000000
+
+label UHU-Linux i386
+	menu label UHU-Linux i386
+    kernel /boot/bzimage.32
+    append initrd=/boot/initram.32 boot=livecd:$label_underscore
+menu default
+
+label UHU-Linux x86_64
+	menu label UHU-Linux x86_64
+    kernel /boot/bzimage.64
+    append initrd=/boot/initram.64 boot=livecd:$label_underscore
+
+label UHU-Linux i386 nomodeset
+	menu label UHU-Linux i386 nomodeset
+    kernel /boot/bzimage.32
+    append initrd=/boot/initram.32 boot=livecd:$label_underscore nomodeset
+
+label UHU-Linux x86_64 nomodeset
+	menu label UHU-Linux x86_64 nomodeset
+    kernel /boot/bzimage.64
+    append initrd=/boot/initram.64 boot=livecd:$label_underscore nomodeset
+
+label memtest
+	menu label Memtest
+    kernel /boot/memtest
+_END_
+
+cat <<__END__ > "$DVDDIR/boot/help.txt"
+Nyelv kivalasztasa:
+ A nyelv kivalasztasahoz adjuk meg a kovetkezo boot parameterek egyiket:
+ lang=xx ahol xx erteke hu, en vagy de
+  vagy
+ LANG=hu_HU.UTF-8 formatumban barmilyen egyeb nyelv
+ 
+ A beallitas megorzodik a merevlemezen az /etc/sysconfig/locale fajlban, igy legkozelebb mar nincs szukseg a nyelv ujboli megadasara.
+ 
+Select languge:
+ To select other language then hungarian set one of the following boot parameter:
+ lang=xx where xx is hu, en or de
+  OR
+ LANG=en_US.UTF-8 for any other settings
+ 
+ The settings will be saved to /etc/sysconfig/locale.
+__END__
+
+
+# boot create
+mkdir -p "$DVDDIR/boot"
+cp "$ROOTDIR"/boot/bzImage-*.i386 "$DVDDIR/boot/bzimage.32"
+cp "$ROOTDIR"/boot/bzImage-*.x86_64 "$DVDDIR/boot/bzimage.64"
+cp "$ROOTDIR"/boot/initramfs-*.i386.cpio.gz "$DVDDIR/boot/initram.32"
+cp "$ROOTDIR"/boot/initramfs-*.x86_64.cpio.gz "$DVDDIR/boot/initram.64"
+mkdir -p "$DVDDIR/boot/themes"
+mkdir -p "$DVDDIR/boot/isolinux"
+cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/boot/memtest"
+cp -a "$ROOTDIR/usr/share/syslinux/isolinux.bin" "$DVDDIR/boot/isolinux/isolinux.bin"
+for i in ldlinux.c32 libcom32.c32 libutil.c32 vesamenu.c32; do
+	cp -a "$ROOTDIR/usr/share/syslinux/$i" "$DVDDIR/boot/isolinux/"
+done
+#cp -a "$ROOTDIR/isolinux.cfg" "$DVDDIR/boot/isolinux/"
+#cp "$ROOTDIR/boot/help.txt" "$DVDDIR/boot/isolinux/help.txt"
+cp -a "$ROOTDIR/boot/themes/bg.png" "$DVDDIR/boot/themes/"
+cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
+cd "$DVDDIR/"
+md5sum -b "$IMG_NAME" > "$DVDDIR/md5sum"
+sha256sum -b "$IMG_NAME" > "$DVDDIR/shasum"
+cd -
+
+echo "Creating ISO image..."
 
 if [ -d "$DVDDIR/boot" ]; then
 	cat <<-END >"$DVDDIR/sortfile"
@@ -78,6 +165,8 @@ echo -n "Calculating checksums..."
 cd "$WORKDIR"
 md5sum -b "uhu-linux-$UHU_RELEASE_FULL.iso" > "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.md5" &
 sha256sum -b "uhu-linux-$UHU_RELEASE_FULL.iso" > "$WORKDIR/uhu-linux-$UHU_RELEASE_FULL.sha" &
+
+cd -
 
 wait
 echo
