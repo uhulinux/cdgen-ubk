@@ -13,11 +13,3 @@ for i in 1 2 3; do
 done
 
 mksquashfs "$IMG" "$ROIMG" -b 1048576 -comp xz
-
-# remount image
-loopdev="$(losetup -f)"
-
-losetup "$loopdev" "$IMG"
-mkdir -p "$ROOTDIR"
-mount "$loopdev" "$ROOTDIR"
-mount --bind "$TMPDIR" "$ROOTDIR/tmp"
