@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -eu
 
 . 00-common
 
@@ -18,5 +18,6 @@ rm -f "$IMG"
 rm -f "$ROIMG"
 rm -f "$PACKAGES_ALL"
 rm -f "$PACKAGES_CD"
+rm -f "$WORKDIR"/installed_packages.txt
 rm -f "$WORKDIR"/*.{iso,md5,sha}
 rm -rf --one-file-system "$DVDDIR"

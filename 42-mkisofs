@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -eu
 
 . 00-common
 
@@ -10,10 +10,6 @@ sha256sum -b "$IMG_NAME" > "$DVDDIR/shasum"
 cd -
 
 echo "Creating ISO image..."
-
-label="UHU-Linux $UHU_RELEASE_FULL" # e.g. "UHU-Linux 2.0"
-label_underscore="${label// /_}"
-release_file="${label// /-}"
 
 if [ -d "$DVDDIR/boot" ]; then
 	cat <<-END >"$DVDDIR/sortfile"
@@ -64,6 +60,7 @@ mkisofs \
 	-J -T -hide-joliet-trans-tbl \
 	-allow-limited-size \
 	-r -hide-rr-moved \
+	-input-charset UTF-8 \
 	$bootoptions \
 	"$DVDDIR"
 

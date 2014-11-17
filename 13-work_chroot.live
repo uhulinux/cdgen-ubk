@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -eu
 
 . 00-common
 
@@ -26,5 +26,6 @@ apt-get \
 	install $(cat packages_cd.txt)
 
 chroot "$ROOTDIR" /sbin/uhu-pkg postinst +
+chroot "$ROOTDIR" dpkg-query -W -f='${Package}\n' \* > "$WORKDIR"/installed_packages.txt
 
 touch "$ROOTDIR"/etc/fstab
