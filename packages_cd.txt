@@ -151,6 +151,7 @@ gftp-gtk
 ghostscript
 gimp
 git
+gksu
 glibc-locales
 glitz
 gnome2-mime-data
