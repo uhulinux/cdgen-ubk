@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -eux
 
 . 00-common
 
@@ -6,11 +6,14 @@
 unset DISPLAY
 
 dbusdir="$ROOTDIR/root/.dbus/session-bus"
-dbusfile=`ls -1 "$ROOTDIR/root/.dbus/session-bus"`
-dbuspid=`grep '^DBUS_SESSION_BUS_PID' "$dbusdir/$dbusfile" | sed 's/DBUS_SESSION_BUS_PID=//g'`
-kill -9 $dbuspid
-# 2 példányban indul a dbus-launch, az egyik már kilőve
-# a másikat a 'pidof -s dbus-launch' paranccsal keressük meg
-# ez elvileg mindig az utoljára indítottat adja vissza
-kill -9 `pidof -s dbus-launch`
-rm -Rf "$ROOTDIR/root/.dbus"
+
+if [ -d "$dbusdir" ]; then
+	dbusfile=`ls -1 "$ROOTDIR/root/.dbus/session-bus"`
+	dbuspid=`grep '^DBUS_SESSION_BUS_PID' "$dbusdir/$dbusfile" | sed 's/DBUS_SESSION_BUS_PID=//g'`
+	kill -9 $dbuspid
+	# 2 példányban indul a dbus-launch, az egyik már kilőve
+	# a másikat a 'pidof -s dbus-launch' paranccsal keressük meg
+	# ez elvileg mindig az utoljára indítottat adja vissza
+	kill -9 `pidof -s dbus-launch`
+	rm -Rf "$ROOTDIR/root/.dbus"
+fi

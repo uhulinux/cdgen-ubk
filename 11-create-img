@@ -2,7 +2,17 @@
 
 . 00-common
 
-SIZE="7100M" # image size in dd format
+# image size in dd format
+case $DESKTOP in
+	gnome)
+		SIZE="7100M"
+		;;
+	mate)
+		SIZE="6800M"
+		;;
+	*)
+		SIZE="6400M"
+esac
 
 dd if=/dev/zero of="$IMG" bs=1 seek="$SIZE" count=0
 

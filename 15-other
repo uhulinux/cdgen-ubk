@@ -13,10 +13,16 @@ else
 	echo "uhu-installer.desktop missing"
 fi
 
-# gnome settings
-cat <<END > "$ROOTDIR"/home/uhu/.profile
-gsettings set org.gnome.desktop.background show-desktop-icons true
-gsettings set org.gnome.shell enabled-extensions "['apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']"
-END
+# default user settings
+case $DESKTOP in
+	gnome)
+		echo 'gsettings set org.gnome.desktop.background show-desktop-icons true' >> "$ROOTDIR"/home/uhu/.profile
+		echo 'gsettings set org.gnome.shell enabled-extensions "['apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']"' >> "$ROOTDIR"/home/uhu/.profile
+		;;
+	mate)
+		;;
+	*)
+		;;
+esac
 
 chown 1000.999 -R "$ROOTDIR"/home/uhu

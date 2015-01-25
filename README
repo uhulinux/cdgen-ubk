@@ -1,3 +1,12 @@
+Használat: ./cdgen gnome|mate
+Jelenleg csak ezekre készít iso-t.
+
+Fájlok:
+packages.cd.orig.txt: az uhu svn-ben lévő cdgen csomaglistája
+packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
+packages.gnome.txt: GNOME3 csomaglista; kiegészíti a packages.cd.base.txt listáját
+packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáját
+
 patched packages:
 - uhu-installer
 - gsettings-desktop-schemas: screensaver aktiválás tiltása
