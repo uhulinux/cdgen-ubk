@@ -7,6 +7,12 @@ packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
 packages.gnome.txt: GNOME3 csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáját
 
+Az iso neve (és az isolinux menüjének címe is) a Work/UHU_RELEASE_FULL fájllal
+felülírható (ha ez a fájl nincs, akkor az /etc/uhu-release tartalmát használja).
+A fájl tartalma hozzáíródik az "UHU-Linux" stringhez.
+Így ha a Work/UHU_RELEASE_FULL tartalma "3 UBK-MATE-1" (idézőjelek nélkül), akkor
+a címke UHU-Linux 3 UBK-MATE-1, az iso neve UHU-Linux-3-UBK-MATE-1 lesz.
+
 patched packages:
 - uhu-installer
 - gsettings-desktop-schemas: screensaver aktiválás tiltása
