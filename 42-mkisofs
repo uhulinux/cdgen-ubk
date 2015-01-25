@@ -75,7 +75,8 @@ sha256sum -b "$release_file.iso" > "$WORKDIR/$release_file.sha" &
 cd -
 
 wait
-echo
+echo "ISO done..."
+echo "ALL done... :)"
 
 # umount image
 for i in 1 2 3; do
