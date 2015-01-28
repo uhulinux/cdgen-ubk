@@ -8,10 +8,8 @@ packages.gnome.txt: GNOME3 csomaglista; kiegészíti a packages.cd.base.txt list
 packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.xfce.txt: XFCE csomaglista; kiegészíti a packages.cd.base.txt listáját
 
-Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájllal tartalma lesz,
-ami hozzáíródik az "UHU-Linux" stringhez.
-Így ha az UHU_RELEASE tartalma "3 UBK-MATE-1" (idézőjelek nélkül), akkor
-a címke UHU-Linux 3 UBK-MATE-1, az iso neve UHU-Linux-3-UBK-MATE-1 lesz.
+Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájllal tartalma lesz, ami hozzáíródik az "UHU-Linux" stringhez.
+Így ha az UHU_RELEASE tartalma "3 UBK-MATE-1" (idézőjelek nélkül), akkor a címke UHU-Linux 3 UBK-MATE-1, az iso neve UHU-Linux-3-UBK-MATE-1 lesz.
 
 patched packages:
 - uhu-installer
