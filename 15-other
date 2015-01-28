@@ -21,6 +21,8 @@ case $DESKTOP in
 		;;
 	mate)
 		;;
+	xfce)
+		;;
 	*)
 		;;
 esac

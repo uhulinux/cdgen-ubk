@@ -1,4 +1,4 @@
-Használat: ./cdgen gnome|mate
+Használat: ./cdgen gnome|mate|xfce
 Jelenleg csak ezekre készít iso-t.
 
 Fájlok:

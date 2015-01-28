@@ -10,8 +10,13 @@ case $DESKTOP in
 	mate)
 		SIZE="6800M"
 		;;
-	*)
+	xfce)
 		SIZE="6400M"
+		;;
+	*)
+		echo "Hibás desktop!"
+		exit 0
+		;;
 esac
 
 dd if=/dev/zero of="$IMG" bs=1 seek="$SIZE" count=0

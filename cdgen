@@ -7,9 +7,13 @@ case $1 in
 	mate)
 		export DESKTOP=mate
 		;;
+	xfce)
+		export DESKTOP=xfce
+		;;
 	*)
 		echo "Ehhez a desktophoz még nincs csomaglista!"
-		exit0;;
+		exit 0
+		;;
 esac
 
 if [ -f packages_cd.txt ]; then
