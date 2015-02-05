@@ -13,9 +13,12 @@ case $DESKTOP in
 	xfce)
 		SIZE="6400M"
 		;;
+	rescue)
+		SIZE="8400M" # Ez még lehet nagyobb is.
+		;;
 	*)
 		echo "Hibás desktop!"
-		exit 0
+		exit
 		;;
 esac
 

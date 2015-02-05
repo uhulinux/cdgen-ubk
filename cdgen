@@ -10,18 +10,60 @@ case $1 in
 	xfce)
 		export DESKTOP=xfce
 		;;
-	*)
-		echo "Ehhez a desktophoz még nincs csomaglista!"
-		exit 0
+	rescue)
+		export DESKTOP=rescue
+		
+		if [ -n "$2" ]; then 
+		USER="$2"
+		else
+		USER="uhu"
+		fi
+		
+		if [ -n "$3" ]; then
+		rm -f UHU_RELEASE
+		echo "$3" > UHU_RELEASE
+		else 
+		cp /etc/uhu-release UHU_RELEASE
+		fi
+		
+		if [ -f rescue.txt ]; then
+			rm -f rescue.txt
+		fi
+
+		dpkg-query -W -f='${Package} ${Status}\n' | grep installed | sort -u | cut -f1 -d \ > rescue.txt
+		echo "uhu-installer" >> rescue.txt
+		echo "bootloader-theme-uhu-installer" >> rescue.txt
+		;;
+	--help|*)
+		printf '\e[0;31m		Használat: ./cdgen gnome|mate|xfce|rescue [user] [UHU_RELEASE tartalma]
+		Jelenleg csak ezekre készít iso-t.
+
+		A rescue választása a futtató gépen telepített rendszerről készít bootolható
+		telepítő iso fájlt.
+		Ebben az esetben opcionálisan további paraméterek adhatók meg szóközzel elválasztva,
+		úgymint a telepített rendszer valamely felhasználójának neve és az UHU_RELEASE fájl
+		kívánt tartalma. Ez utóbbi nem tartalmazhat szóközt, vagy ha igen akkor kötelező
+		idézőjelbe tenni!
+		Ha nincs felhasználó megadva, akkor az automatikusan uhu lesz, az UHU_RELEASE
+		tartalmára nincs megadva semmi akkor automatikusan az /etc/uhu-release fájl
+		tartalma helyettesítődik be.\n'
+
+		exit
 		;;
 esac
+
+mkdir -p $PWD/Work
 
 if [ -f packages_cd.txt ]; then
 	rm -f packages_cd.txt
 fi
 
-cp packages.cd.base.txt packages_cd.txt
-cat packages.$DESKTOP.txt >> packages_cd.txt
+if [ -f rescue.txt ]; then
+	mv rescue.txt packages_cd.txt
+else
+	cp packages.cd.base.txt packages_cd.txt
+	cat packages.$DESKTOP.txt >> packages_cd.txt
+fi
 
 for i in [0-9][0-9]-*; do
 	if [ -x "$i" ]; then
