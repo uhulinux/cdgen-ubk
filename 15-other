@@ -29,7 +29,7 @@ case $DESKTOP in
 		;;
 esac
 
-if [ $DESKTOP="rescue" ]; then
+if [[ $DESKTOP = "rescue" ]]; then
 	chown 1000.999 -R "$ROOTDIR"/home/"$USER"
 else
 	chown 1000.999 -R "$ROOTDIR"/home/uhu

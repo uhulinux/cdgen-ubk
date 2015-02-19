@@ -2,20 +2,20 @@
 
 . 00-common
 
-if [ $DESKTOP="rescue" ]; then
-chroot "$ROOTDIR" useradd -m "$USER"
-chroot "$ROOTDIR" passwd -d "$USER"
-chroot "$ROOTDIR" passwd -d root
+if [[ $DESKTOP = "rescue" ]]; then
+	chroot "$ROOTDIR" useradd -m "$USER"
+	chroot "$ROOTDIR" passwd -d "$USER"
+	chroot "$ROOTDIR" passwd -d root
 else
-chroot "$ROOTDIR" useradd -m uhu
-chroot "$ROOTDIR" passwd -d uhu
-chroot "$ROOTDIR" passwd -d root
+	chroot "$ROOTDIR" useradd -m uhu
+	chroot "$ROOTDIR" passwd -d uhu
+	chroot "$ROOTDIR" passwd -d root
 fi
 
-if [ -f "$ROOTDIR"/etc/gdm/custom.conf ] & [ $DESKTOP="rescue" ]; then
+if [ -s "$ROOTDIR"/etc/gdm/custom.conf ] & [[ $DESKTOP = "rescue" ]]; then
 	sed -ri -e  '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin='$USER'/' "$ROOTDIR"/etc/gdm/custom.conf
 else
-	if [ -f "$ROOTDIR"/etc/gdm/custom.conf ]; then
+	if [ -s "$ROOTDIR"/etc/gdm/custom.conf ]; then
 	sed -ri -e  '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=uhu/' "$ROOTDIR"/etc/gdm/custom.conf
 fi
 fi
