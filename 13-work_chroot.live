@@ -29,3 +29,8 @@ chroot "$ROOTDIR" /sbin/uhu-pkg postinst +
 chroot "$ROOTDIR" dpkg-query -W -f='${Package} ${Version}\n' \* > "$WORKDIR"/installed_packages.txt
 
 touch "$ROOTDIR"/etc/fstab
+
+# telepített rendszerre nem kell installer
+for pkg in bootloader-theme-uhu-installer uhu-installer; do
+	rm -f "$ROOTDIR$APT_CACHEDIR"/archives/${pkg%%_*}_*
+done
