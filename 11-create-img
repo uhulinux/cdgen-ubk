@@ -11,7 +11,7 @@ case $DESKTOP in
 		SIZE="6800M"
 		;;
 	xfce)
-		SIZE="6400M"
+		SIZE="6600M"
 		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.
