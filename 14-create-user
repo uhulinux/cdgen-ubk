@@ -12,10 +12,22 @@ else
 	chroot "$ROOTDIR" passwd -d root
 fi
 
-if [ -s "$ROOTDIR"/etc/gdm/custom.conf ] & [[ $DESKTOP = "rescue" ]]; then
-	sed -ri -e  '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin='$USER'/' "$ROOTDIR"/etc/gdm/custom.conf
-else
-	if [ -s "$ROOTDIR"/etc/gdm/custom.conf ]; then
-	sed -ri -e  '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=uhu/' "$ROOTDIR"/etc/gdm/custom.conf
+# gdm autologin
+if [ -s "$ROOTDIR"/etc/gdm/custom.conf ]; then
+	if [[ $DESKTOP = "rescue" ]]; then
+		sed -ri -e '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin='$USER'/' "$ROOTDIR"/etc/gdm/custom.conf
+	else
+		sed -ri -e '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=uhu/' "$ROOTDIR"/etc/gdm/custom.conf
+	fi
 fi
+
+# lightdm autologin
+if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
+	if [[ $DESKTOP = "rescue" ]]; then
+		sed -i -e 's/#autologin-user=/autologin-user="$USER"/' "$ROOTDIR"/etc/lightdm/lightdm.conf
+	else
+		chroot "$ROOTDIR" usermod -p uhu uhu
+		sed -i -e 's/#autologin-user=/autologin-user=uhu/' "$ROOTDIR"/etc/lightdm/lightdm.conf
+		cat "$ROOTDIR"/etc/lightdm/lightdm.conf
+	fi
 fi

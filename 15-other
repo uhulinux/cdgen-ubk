@@ -20,8 +20,14 @@ case $DESKTOP in
 		echo 'gsettings set org.gnome.shell enabled-extensions "['apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']"' >> "$ROOTDIR"/home/uhu/.profile
 		;;
 	mate)
+		if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+			chroot "$ROOTDIR" systemctl enable lightdm
+		fi
 		;;
 	xfce)
+		if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+			chroot "$ROOTDIR" systemctl enable lightdm
+		fi
 		;;
 	rescue)
 		;;
