@@ -28,6 +28,5 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 	else
 		chroot "$ROOTDIR" usermod -p uhu uhu
 		sed -i -e 's/#autologin-user=/autologin-user=uhu/' "$ROOTDIR"/etc/lightdm/lightdm.conf
-		cat "$ROOTDIR"/etc/lightdm/lightdm.conf
 	fi
 fi
