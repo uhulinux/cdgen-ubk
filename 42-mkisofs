@@ -49,10 +49,12 @@ else
 	bootoptions=""
 fi
 
+mkdir -p "$ISODIR"
+
 ISODEBUG=1 \
 #chroot "$DVDDIR" \
 mkisofs \
-	-o "$WORKDIR/$release_file.iso" \
+	-o "$ISODIR/$release_file.iso" \
 	-V "$label" \
 	-A "$label" \
 	-publisher "UHU-Linux Baráti Kör" \
@@ -64,13 +66,13 @@ mkisofs \
 	$bootoptions \
 	"$DVDDIR"
 
-isohybrid "$WORKDIR/$release_file.iso"
+isohybrid "$ISODIR/$release_file.iso"
 sync
 
 echo -n "Calculating checksums..."
-cd "$WORKDIR"
-md5sum -b "$release_file.iso" > "$WORKDIR/$release_file.md5" &
-sha256sum -b "$release_file.iso" > "$WORKDIR/$release_file.sha" &
+cd "$ISODIR"
+md5sum -b "$release_file.iso" > "$ISODIR/$release_file.md5" &
+sha256sum -b "$release_file.iso" > "$ISODIR/$release_file.sha" &
 
 cd -
 
