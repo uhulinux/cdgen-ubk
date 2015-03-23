@@ -26,10 +26,10 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 	if [[ $DESKTOP = "rescue" ]]; then
 		sed -i -e 's/#pam-service=lightdm/pam-service=lightdm-autologin/' "$ROOTDIR"/etc/lightdm/lightdm.conf
 		sed -i -e 's/#autologin-user=/autologin-user="$USER"/' "$ROOTDIR"/etc/lightdm/lightdm.conf
-		sed -i -e 's/#autologin-in-background=false/autologin-in-background=true/' "$ROOTDIR"/etc/lightdm/lightdm.conf
+	#	sed -i -e 's/#autologin-in-background=false/autologin-in-background=true/' "$ROOTDIR"/etc/lightdm/lightdm.conf
 	else
 		sed -i -e 's/#pam-service=lightdm/pam-service=lightdm-autologin/' "$ROOTDIR"/etc/lightdm/lightdm.conf
 		sed -i -e 's/#autologin-user=/autologin-user=uhu/' "$ROOTDIR"/etc/lightdm/lightdm.conf
-		sed -i -e 's/#autologin-in-background=false/autologin-in-background=true/' "$ROOTDIR"/etc/lightdm/lightdm.conf
+	#	sed -i -e 's/#autologin-in-background=false/autologin-in-background=true/' "$ROOTDIR"/etc/lightdm/lightdm.conf
 	fi
 fi
