@@ -3,7 +3,6 @@ a2ps
 acl
 acpitool
 acx-fw
-adobe-reader
 alien
 alsa-firmware
 alsa-oss
@@ -514,6 +513,7 @@ wvdial
 x11vnc
 xauth
 xbindkeys
+xdg-user-dirs
 xdg-utils
 xfsprogs
 xinetd

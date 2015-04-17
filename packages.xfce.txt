@@ -1,3 +1,4 @@
+adobe-reader
 garcon
 gigolo
 gtk2-engine-xfce
