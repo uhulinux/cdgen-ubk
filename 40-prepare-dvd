@@ -11,7 +11,7 @@ cat <<END >"$DVDDIR/isolinux.cfg"
 default vesamenu.c32
 timeout 100
 
-f1 help.txt
+F1 help.txt
 
 menu title UHU-Linux $UHU_RELEASE ($(date '+%F'))
 menu background /boot/themes/bg.png
