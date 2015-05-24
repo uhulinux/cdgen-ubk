@@ -118,7 +118,6 @@ fonts-x.org-ttf
 fonts-x.org-type1
 foomatic-db
 foomatic-db-engine
-foomatic-filters
 fortune
 fortune-hu
 freeipmi
