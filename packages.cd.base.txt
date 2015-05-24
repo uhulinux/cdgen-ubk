@@ -104,6 +104,8 @@ fonts-freeware
 fonts-ghostscript-std
 fonts-liberation
 fonts-libertine
+fonts-symbola
+fonts-unicode
 fonts-x.org-100dpi-iso-10646
 fonts-x.org-100dpi-other
 fonts-x.org-75dpi-iso-10646
