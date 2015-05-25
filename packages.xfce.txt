@@ -1,4 +1,3 @@
-adobe-reader
 garcon
 gigolo
 gtk2-engine-xfce
@@ -10,6 +9,7 @@ midori
 mousepad
 orage
 parole
+qpdfview
 ristretto
 thunar
 thunar-archive-plugin
