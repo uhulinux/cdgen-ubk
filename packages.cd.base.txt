@@ -4,10 +4,7 @@ acl
 acpitool
 acx-fw
 alien
-alsa-firmware
-alsa-oss
 alsa-plugins
-alsa-tools
 alsa-utils
 antiword
 aoetools
@@ -21,7 +18,6 @@ atapci
 autoconf
 automake
 avahi
-aview
 bash
 bash-completion
 bc
@@ -31,7 +27,6 @@ bind-utils
 binutils
 bison
 bladeenc
-blast
 blktool
 bluez
 bluez-firmware
@@ -67,7 +62,6 @@ db4
 db4-utils
 dbus
 dbus-launch
-dbview
 dconf-editor
 desktop-file-utils
 d-feet
@@ -394,7 +388,6 @@ perl-xml-twig
 php-pgsql
 pidgin
 pigz
-pilot-link
 pkgconfig
 polkit
 polkit-qt
@@ -517,7 +510,6 @@ xbindkeys
 xdg-user-dirs
 xdg-utils
 xfsprogs
-xinetd
 xinit
 xkb-utils
 xkeyboard-config
