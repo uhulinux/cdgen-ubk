@@ -1,4 +1,5 @@
 compton-conf
+lightdm
 lximage-qt
 lxqt-about
 lxqt-admin

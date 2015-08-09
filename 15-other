@@ -3,7 +3,6 @@
 . 00-common
 
 # add uhu-installer icon to desktop
-# ~/Asztal szebb lenne, de kell egy xdg-user-dirs-update --set DESKTOP $HOME/Asztal
 
 chroot "$ROOTDIR" xdg-user-dirs-update
 
