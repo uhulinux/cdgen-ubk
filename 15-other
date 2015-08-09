@@ -32,6 +32,11 @@ case $DESKTOP in
 			chroot "$ROOTDIR" systemctl enable lightdm
 		fi
 		;;
+	lxqt)
+		if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+			chroot "$ROOTDIR" systemctl enable lightdm
+		fi
+		;;
 	rescue)
 		;;
 	*)

@@ -10,6 +10,9 @@ case $1 in
 	xfce)
 		export DESKTOP=xfce
 		;;
+	lxqt)
+		export DESKTOP=lxqt
+		;;
 	rescue)
 		export DESKTOP=rescue
 		
@@ -35,7 +38,7 @@ case $1 in
 		echo "bootloader-theme-uhu-installer" >> rescue.txt
 		;;
 	--help|*)
-		printf '\e[0;31m		Használat: ./cdgen gnome|mate|xfce|rescue [user] [UHU_RELEASE tartalma]
+		printf '\e[0;31m		Használat: ./cdgen gnome|mate|xfce|lxqt|rescue [user] [UHU_RELEASE tartalma]
 		Jelenleg csak ezekre készít iso-t.
 
 		A rescue választása a futtató gépen telepített rendszerről készít bootolható

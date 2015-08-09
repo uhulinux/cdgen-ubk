@@ -13,6 +13,9 @@ case $DESKTOP in
 	xfce)
 		SIZE="6600M"
 		;;
+	lxqt)
+		SIZE="6400M"
+		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.
 		;;
