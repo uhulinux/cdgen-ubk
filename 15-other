@@ -3,7 +3,7 @@
 . 00-common
 
 # add uhu-installer icon to desktop
-
+echo "Add uhu-installer icon to desktop"
 chroot "$ROOTDIR" xdg-user-dirs-update
 
 if [ -f "$ROOTDIR"/usr/share/applications/uhu-installer.desktop ]; then
@@ -16,6 +16,7 @@ else
 fi
 
 # default user settings
+echo "Set default user settings"
 case $DESKTOP in
 	gnome)
 		echo 'gsettings set org.gnome.desktop.background show-desktop-icons true' >> "$ROOTDIR"/home/uhu/.profile
