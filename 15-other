@@ -35,6 +35,9 @@ case $DESKTOP in
 		if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
 			chroot "$ROOTDIR" systemctl enable lightdm
 		fi
+		for config in lxqt panel session windowmanagers; do
+			cp "$ROOTDIR"/etc/xdg/lxqt/${config}.conf "$ROOTDIR"/home/uhu/.config/lxqt/
+		done
 		;;
 	rescue)
 		;;
