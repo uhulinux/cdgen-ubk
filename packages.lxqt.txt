@@ -1,4 +1,5 @@
 compton-conf
+gvfs
 lightdm
 lximage-qt
 lxqt-about
