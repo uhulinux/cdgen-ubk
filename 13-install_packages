@@ -31,6 +31,6 @@ chroot "$ROOTDIR" dpkg-query -W -f='${Package} ${Version}\n' \* > "$WORKDIR"/ins
 touch "$ROOTDIR"/etc/fstab
 
 # telepített rendszerre nem kell installer
-for pkg in bootloader-theme-uhu-installer uhu-installer; do
+for pkg in bootloader-theme-uhu-installer uhu-installer-ubk; do
 	rm -f "$ROOTDIR$APT_CACHEDIR"/archives/${pkg%%_*}_*
 done

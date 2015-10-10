@@ -477,7 +477,7 @@ uhubuild-helpers
 uhubuild-here
 uhubuild-under-chroot
 uhu-initscripts
-uhu-installer
+uhu-installer-ubk
 uhu-pixmaps
 uhu-pkg
 uhu-pkgutils
