@@ -155,7 +155,6 @@ gzip
 hashalot
 hddtemp
 hdparm
-hpijs
 hplip
 htop
 hunspell
@@ -197,7 +196,6 @@ libice
 libidn
 liboldx
 libreoffice
-libsane-hpaio
 libsm
 libtool
 libx11
