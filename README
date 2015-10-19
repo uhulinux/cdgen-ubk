@@ -1,8 +1,8 @@
 
-Használat: ./cdgen gnome|mate|xfce|rescue [user] [UHU_RELEASE tartalma] --help
+Használat: ./cdgen gnome|mate|xfce|lxqt|rescue [user] [UHU_RELEASE tartalma] --help
 Jelenleg csak ezekre készít iso-t.
 
-A rescue választása az a futtató gépen telepített rendszerről készít bootolható
+A rescue választása a futtató gépen telepített rendszerről készít bootolható
 telepítő iso fájlt.
 Ebben az esetben opcionálisan további paraméterek adhatók meg szóközzel elválasztva,
 úgymint a telepített rendszer valamely felhasználójának neve és az UHU_RELEASE fájl
@@ -22,13 +22,14 @@ Fájlok:
 packages.cd.orig.txt: az uhu svn-ben lévő cdgen csomaglistája
 packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
 packages.gnome.txt: GNOME3 csomaglista; kiegészíti a packages.cd.base.txt listáját
+packages.lxqt.txt: LXQT csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.xfce.txt: XFCE csomaglista; kiegészíti a packages.cd.base.txt listáját
 
 Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz, 
-ami hozzáíródik az "UHU-Linux" stringhez.
-Így ha az UHU_RELEASE tartalma "3 UBK-MATE-1" (idézőjelek nélkül), 
-akkor a címke UHU-Linux 3 UBK-MATE-1, az iso neve UHU-Linux-3-UBK-MATE-1 lesz.
+kiegészítve a desktop nevével és az aktuális dátummal, az "UHU-Linux" stringhez fűzve.
+Így ha az UHU_RELEASE tartalma "3 UBK" (idézőjelek nélkül), 
+akkor a címke UHU-Linux 3 UBK-MATE-20151018, az iso neve UHU-Linux-3-UBK-MATE-20151018.iso lesz.
 
 patched packages:
 - uhu-installer

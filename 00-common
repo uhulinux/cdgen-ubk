@@ -42,7 +42,7 @@ PACKAGES_ALL="$WORKDIR"/packages_all.txt
 PACKAGES_CD="$WORKDIR"/packages_cd.txt
 
 if [[ -f UHU_RELEASE ]]; then
-	UHU_RELEASE="$(<UHU_RELEASE)"
+	UHU_RELEASE="$(<UHU_RELEASE)-${DESKTOP^^}-$(date +"%Y%m%d")"
 else
 	echo "Hiányzik a release fájl!"
 fi
