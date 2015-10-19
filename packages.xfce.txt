@@ -2,7 +2,6 @@ garcon
 gigolo
 gtk2-engine-xfce
 gtk2-theme-xfce
-gvfs
 icon-theme-xfce
 lightdm
 midori

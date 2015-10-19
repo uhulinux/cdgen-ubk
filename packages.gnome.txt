@@ -35,7 +35,6 @@ gnome-u2ps
 gnome-user-share
 gnome-weather
 gthumb
-gvfs
 kino
 nautilus
 planner
