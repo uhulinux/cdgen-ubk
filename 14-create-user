@@ -25,6 +25,11 @@ if [ -s "$ROOTDIR"/etc/gdm/custom.conf ]; then
 	else
 		sed -ri -e '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=uhu/' "$ROOTDIR"/etc/gdm/custom.conf
 	fi
+	# enable gdm
+	echo "Enable gdm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/gdm.service ]; then
+		chroot "$ROOTDIR" systemctl enable gdm
+	fi
 fi
 
 # lightdm autologin
@@ -38,5 +43,10 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 		sed -i -e 's/#pam-service=lightdm/pam-service=lightdm-autologin/' "$ROOTDIR"/etc/lightdm/lightdm.conf
 		sed -i -e 's/#autologin-user=/autologin-user=uhu/' "$ROOTDIR"/etc/lightdm/lightdm.conf
 	#	sed -i -e 's/#autologin-in-background=false/autologin-in-background=true/' "$ROOTDIR"/etc/lightdm/lightdm.conf
+	fi
+	# enable lightdm
+	echo "Enable lightdm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+		chroot "$ROOTDIR" systemctl enable lightdm
 	fi
 fi
