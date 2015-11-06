@@ -1,5 +1,4 @@
 compton-conf
-lightdm
 lximage-qt
 lxqt-about
 lxqt-admin
@@ -16,3 +15,4 @@ lxqt-session
 obconf-qt
 qpdfview-qt5
 qterminal
+sddm

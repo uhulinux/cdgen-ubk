@@ -48,3 +48,20 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 		chroot "$ROOTDIR" systemctl enable lightdm
 	fi
 fi
+
+# sddm autologin
+if [ -s "$ROOTDIR"/etc/sddm.conf ]; then
+	echo "Set sddm autologin"
+	if [[ $DESKTOP = "rescue" ]]; then
+		sed -i -e "s/User=.*/User=$USER/" "$ROOTDIR"/etc/sddm.conf
+		sed -i -e "s/Session=.*/Session=$DESKTOP/" "$ROOTDIR"/etc/sddm.conf
+	else
+		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf
+		sed -i -e "s/Session=.*/Session=$DESKTOP/" "$ROOTDIR"/etc/sddm.conf
+	fi
+	# enable sddm
+	echo "Enable sddm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+		chroot "$ROOTDIR" systemctl enable sddm
+	fi
+fi

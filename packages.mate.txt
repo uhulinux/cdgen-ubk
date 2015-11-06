@@ -6,7 +6,6 @@ caja-extensions
 engrampa
 eom
 eom-plugins
-lightdm
 marco
 mate-applet-lockkeys
 mate-applets
@@ -38,3 +37,4 @@ mate-user-share
 mate-utils
 pluma
 pluma-plugins
+sddm
