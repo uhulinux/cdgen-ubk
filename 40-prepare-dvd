@@ -13,7 +13,7 @@ timeout 100
 
 F1 help.txt
 
-menu title UHU-Linux $UHU_RELEASE ($(date '+%F'))
+menu title $UHU_RELEASE ($ISODATE)
 menu background /boot/themes/bg.png
 menu tabmsg Press [F1] for help, or [Tab] to edit options
 
@@ -31,13 +31,13 @@ menu color cmdline 0 #ffffffff #00000000
 label UHU-Linux i386
 	menu label UHU-Linux i386
     kernel /boot/bzimage.32
-    append initrd=/boot/initram.32 boot=livecd:$label_underscore
+    append initrd=/boot/initram.32 boot=livecd:$cdlabel_boot
 menu default
 
 label UHU-Linux i386 nomodeset
 	menu label UHU-Linux i386 nomodeset
     kernel /boot/bzimage.32
-    append initrd=/boot/initram.32 boot=livecd:$label_underscore nomodeset
+    append initrd=/boot/initram.32 boot=livecd:$cdlabel_boot nomodeset
 
 label memtest
 	menu label Memtest

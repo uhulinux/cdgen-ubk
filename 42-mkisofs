@@ -55,8 +55,8 @@ ISODEBUG=1 \
 #chroot "$DVDDIR" \
 mkisofs \
 	-o "$ISODIR/$release_file.iso" \
-	-V "$label" \
-	-A "$label" \
+	-V "$cdlabel" \
+	-A "$cdlabel" \
 	-publisher "UHU-Linux Baráti Kör" \
 	-p "UHU-Linux DVD Generator" \
 	-J -T -hide-joliet-trans-tbl \

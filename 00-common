@@ -32,6 +32,8 @@ ROOTDIR="$WORKDIR/root"
 TMPDIR="$WORKDIR/tmp"
 DVDDIR="$WORKDIR/DVD"
 ISODIR="$PWD/ISO"
+ISODATE=$(date '+%F')
+#ISODATE=$(date '+%Y.%m.%d')
 
 IMG_NAME="uhulinux.img"
 ROIMG_NAME="uhulinux.roimg"
@@ -42,15 +44,15 @@ PACKAGES_ALL="$WORKDIR"/packages_all.txt
 PACKAGES_CD="$WORKDIR"/packages_cd.txt
 
 if [[ -f UHU_RELEASE ]]; then
-	UHU_RELEASE="$(<UHU_RELEASE) ${DESKTOP^^}"
-	UHU_RELEASE_FULL="$(<UHU_RELEASE)-${DESKTOP^^}-$(date '+%Y%m%d')"
+	UHU_RELEASE="UHU-Linux $(<UHU_RELEASE) ${DESKTOP^^}"
+	UHU_RELEASE_FULL="UHU-Linux $(<UHU_RELEASE)-${DESKTOP^^}-${ISODATE//-}"
 else
 	echo "Hiányzik a release fájl!"
 fi
 
-label="UHU-Linux $UHU_RELEASE_FULL"
-label_underscore="${label// /_}"
-release_file="${label// /-}"
+cdlabel="$UHU_RELEASE_FULL"
+cdlabel_boot="${cdlabel// /_}"
+release_file="${cdlabel// /-}"
 
 APT_STATEDIR="/var/lib/apt"
 APT_CACHEDIR="/var/cache/apt"
