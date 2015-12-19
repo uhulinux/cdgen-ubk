@@ -46,6 +46,7 @@ cdp
 cdrdao
 cdrkit
 cdtest
+claws-mail
 cloop
 convmv
 coreutils
@@ -460,7 +461,6 @@ terminfo
 texinfo
 tftp
 tftpd
-thunderbird
 tigervnc
 traceroute
 tree

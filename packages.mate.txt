@@ -15,7 +15,6 @@ mate-control-center
 mate-desktop
 mate-icon-theme
 mate-indicator-applet
-mate-main-menu
 mate-media
 mate-menu
 mate-menus
