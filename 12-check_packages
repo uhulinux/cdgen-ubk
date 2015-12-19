@@ -13,7 +13,7 @@ if [ ! -f packages_cd.txt ]; then
 	exit 1
 fi
 
-grep '^Package: ' "$ROOTDIR$APT_STATEDIR"/lists/*Packages \
+grep '^Package: ' "$WORKDIR/$APT_STATEDIR"/lists/*Packages \
   | cut -d' ' -f2 | sort -u > "$PACKAGES_ALL"
 
 sort -u < packages_cd.txt > "$PACKAGES_CD"

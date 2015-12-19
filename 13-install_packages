@@ -17,7 +17,7 @@ mount --bind /proc "$ROOTDIR/proc"
 
 apt-get \
 	$apt_options \
-	-o Dir::State::status="$ROOTDIR$DPKG_STATEDIR/status" \
+	-o Dir::State::status="$WORKDIR/$DPKG_STATEDIR/status" \
 	-o Apt::Immediate-Configure="false" \
 	-o DPkg::Options::=--root="$ROOTDIR" \
 	-o Debug::NoLocking="true" \
@@ -34,8 +34,3 @@ touch "$ROOTDIR"/etc/fstab
 if [ ! -f "$ROOTDIR"/etc/hostname ]; then
 	echo "localhost" > "$ROOTDIR"/etc/hostname
 fi
-
-# telepített rendszerre nem kell installer
-for pkg in bootloader-theme-uhu-installer uhu-installer-ubk; do
-	rm -f "$ROOTDIR$APT_CACHEDIR"/archives/${pkg%%_*}_*
-done

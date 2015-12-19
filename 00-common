@@ -54,9 +54,13 @@ cdlabel="$UHU_RELEASE_FULL"
 cdlabel_boot="${cdlabel// /_}"
 release_file="${cdlabel// /-}"
 
-APT_STATEDIR="/var/lib/apt"
-APT_CACHEDIR="/var/cache/apt"
-DPKG_STATEDIR="/var/lib/dpkg"
+APT_STATEDIR_LIVE="/var/lib/apt"
+APT_CACHEDIR_LIVE="/var/cache/apt"
+DPKG_STATEDIR_LIVE="/var/lib/dpkg"
+
+APT_STATEDIR="apt/lib"
+APT_CACHEDIR="apt/cache"
+DPKG_STATEDIR="dpkg/lib"
 
 if [ -n "${CDGEN_APT_SOURCES:-}" ]; then
 	apt_sourcelist="-o Dir::Etc::SourceList=$CDGEN_APT_SOURCES"
@@ -68,8 +72,9 @@ if [ -n "${CDGEN_APT_PREFERENCES:-}" ]; then
 else
 	apt_preferences=""
 fi
-apt_statedir="-o Dir::State=$ROOTDIR$APT_STATEDIR"
-apt_cachedir="-o Dir::Cache=$ROOTDIR$APT_CACHEDIR"
+
+apt_statedir="-o Dir::State=$WORKDIR/$APT_STATEDIR"
+apt_cachedir="-o Dir::Cache=$WORKDIR/$APT_CACHEDIR"
 apt_options="$apt_sourcelist $apt_preferences $apt_statedir $apt_cachedir"
 
 echo -e "  \\e[1m${0##*/} ...\\e[0m"
