@@ -27,11 +27,12 @@ modprobe loop >/dev/null 2>&1 || true
 #loopdev="$(losetup -f)"
 loopdev="/dev/loop0"
 
-WORKDIR="$PWD/Work"
+BASEDIR="$PWD"
+WORKDIR="$BASEDIR/Work"
 ROOTDIR="$WORKDIR/root"
 TMPDIR="$WORKDIR/tmp"
 DVDDIR="$WORKDIR/DVD"
-ISODIR="$PWD/ISO"
+ISODIR="$BASEDIR/ISO"
 ISODATE=$(date '+%F')
 #ISODATE=$(date '+%Y.%m.%d')
 
@@ -62,9 +63,9 @@ APT_STATEDIR="apt/lib"
 APT_CACHEDIR="apt/cache"
 DPKG_STATEDIR="dpkg/lib"
 
-if [[ -f "$PWD/sources.list" ]]; then
+if [[ -f "$BASEDIR/sources.list" ]]; then
 	if [[ ! -f "/etc/apt/sources.list-cdgen" ]]; then
-		cp "$PWD/sources.list" /etc/apt/sources.list-cdgen
+		cp "$BASEDIR/sources.list" /etc/apt/sources.list-cdgen
 	fi
 fi
 

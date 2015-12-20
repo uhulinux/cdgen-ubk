@@ -19,6 +19,22 @@ rm -f "$ROIMG"
 rm -f "$PACKAGES_ALL"
 rm -f "$PACKAGES_CD"
 rm -f "$WORKDIR"/installed_packages.txt
-rm -rf --one-file-system "$WORKDIR/apt"
-rm -rf --one-file-system "$WORKDIR/dpkg"
+rm -rf "$WORKDIR/dpkg"
 rm -rf --one-file-system "$DVDDIR"
+
+# apt cache tisztítása
+cd "$WORKDIR"/apt/cache/archives
+
+printf '%s\n' *.uhu | 
+  awk -F_ '{ print $1 }' |
+  sort -u | 
+  while read pkg; do 
+    pkg_files=($(ls -t "$pkg"_*.uhu))
+    nr=${#pkg_files[@]}
+    if ((nr > 1)); then
+      unset pkg_files[0]
+      rm "${pkg_files[@]}"
+    fi
+  done
+  
+cd "$BASEDIR"
