@@ -1,0 +1,20 @@
+#!/bin/bash -eu
+
+. 00-common
+
+# apt cache tisztítása
+cd "$WORKDIR"/apt/cache/archives
+
+printf '%s\n' *.uhu |
+  awk -F_ '{ print $1 }' |
+  sort -u |
+  while read pkg; do
+    pkg_files=($(ls -t "$pkg"_*.uhu))
+    nr=${#pkg_files[@]}
+    if ((nr > 1)); then
+      unset pkg_files[0]
+      rm "${pkg_files[@]}"
+    fi
+  done
+
+cd "$BASEDIR"
