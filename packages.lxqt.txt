@@ -13,6 +13,7 @@ lxqt-qtplugin
 lxqt-runner
 lxqt-session
 obconf-qt
+pcmanfm-qt
 qpdfview-qt5
 qterminal
 sddm
