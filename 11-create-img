@@ -5,16 +5,16 @@
 # image size in dd format
 case $DESKTOP in
 	gnome)
-		SIZE="5400M"
+		SIZE="5500M"
 		;;
 	mate)
-		SIZE="5100M"
+		SIZE="5200M"
 		;;
 	xfce)
-		SIZE="4900M"
+		SIZE="5000M"
 		;;
 	lxqt)
-		SIZE="4700M"
+		SIZE="4800M"
 		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.
