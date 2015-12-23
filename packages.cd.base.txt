@@ -466,6 +466,7 @@ traceroute
 tree
 trunc
 ttyrec
+tuxcommander
 tzdata
 udftools
 udisks
