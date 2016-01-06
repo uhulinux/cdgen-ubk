@@ -22,17 +22,11 @@ case $DESKTOP in
 		echo 'gsettings set org.gnome.desktop.background show-desktop-icons true' >> "$ROOTDIR"/home/uhu/.profile
 		echo 'gsettings set org.gnome.shell enabled-extensions "['apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']"' >> "$ROOTDIR"/home/uhu/.profile
 		;;
-	mate)
-		;;
-	xfce)
-		;;
 	lxqt)
 		mkdir -p "$ROOTDIR"/home/uhu/.config/lxqt/
 		for config in lxqt panel session windowmanagers; do
 			cp "$ROOTDIR"/etc/xdg/lxqt/${config}.conf "$ROOTDIR"/home/uhu/.config/lxqt/
 		done
-		;;
-	rescue)
 		;;
 	*)
 		;;
