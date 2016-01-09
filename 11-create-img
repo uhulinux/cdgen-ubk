@@ -16,6 +16,9 @@ case $DESKTOP in
 	lxqt)
 		SIZE="4800M"
 		;;
+	cinnamon)
+		SIZE="5000M"
+		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.
 		;;

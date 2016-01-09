@@ -13,22 +13,25 @@ case $1 in
 	lxqt)
 		export DESKTOP=lxqt
 		;;
+	cinnamon)
+		export DESKTOP=cinnamon
+		;;
 	rescue)
 		export DESKTOP=rescue
 		
-		if [ -n "$2" ]; then 
+		if [ -n "$2" ]; then
 		USER="$2"
 		else
 		USER="uhu"
 		fi
-		
+
 		if [ -n "$3" ]; then
 		rm -f UHU_RELEASE
 		echo "$3" > UHU_RELEASE
-		else 
+		else
 		cp /etc/uhu-release UHU_RELEASE
 		fi
-		
+
 		if [ -f rescue.txt ]; then
 			rm -f rescue.txt
 		fi
@@ -66,9 +69,9 @@ case $1 in
 		packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáját
 		packages.xfce.txt: XFCE csomaglista; kiegészíti a packages.cd.base.txt listáját
 
-		Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz, 
+		Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz,
 		kiegészítve a desktop nevével és az aktuális dátummal, az "UHU-Linux" stringhez fűzve.
-		Így ha az UHU_RELEASE tartalma "3 UBK" (idézőjelek nélkül), 
+		Így ha az UHU_RELEASE tartalma "3 UBK" (idézőjelek nélkül),
 		akkor a címke UHU-Linux 3 UBK-MATE-20151018, az iso neve UHU-Linux-3-UBK-MATE-20151018.iso lesz.\n'
 		exit
 		;;
