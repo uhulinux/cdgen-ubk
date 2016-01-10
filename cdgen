@@ -3,22 +3,28 @@
 case $1 in
 	gnome)
 		export DESKTOP=gnome
+		export DESKTOPNAME=GNOME
 		;;
 	mate)
 		export DESKTOP=mate
+		export DESKTOPNAME=MATE
 		;;
 	xfce)
 		export DESKTOP=xfce
+		export DESKTOPNAME=XFCE
 		;;
 	lxqt)
 		export DESKTOP=lxqt
+		export DESKTOPNAME=LXQt
 		;;
 	cinnamon)
 		export DESKTOP=cinnamon
+		export DESKTOPNAME=Cinnamon
 		;;
 	rescue)
 		export DESKTOP=rescue
-		
+		export DESKTOPNAME=rescue
+
 		if [ -n "$2" ]; then
 		USER="$2"
 		else

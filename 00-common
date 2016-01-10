@@ -45,15 +45,15 @@ PACKAGES_ALL="$WORKDIR"/packages_all.txt
 PACKAGES_CD="$WORKDIR"/packages_cd.txt
 
 if [[ -f UHU_RELEASE ]]; then
-	UHU_RELEASE="UHU-Linux $(<UHU_RELEASE) ${DESKTOP^^}"
+	UHU_RELEASE="UHU-Linux $(<UHU_RELEASE) ${DESKTOPNAME}"
 	UHU_RELEASE_FULL="UHU-Linux $(<UHU_RELEASE)-${DESKTOP^^}-${ISODATE//-}"
 else
 	echo "Hiányzik a release fájl!"
 fi
 
-cdlabel="$UHU_RELEASE_FULL"
-cdlabel_boot="${cdlabel// /_}"
-release_file="${cdlabel// /-}"
+cdlabel="$UHU_RELEASE"
+cdlabel_boot="${UHU_RELEASE// /_}"
+release_file="${UHU_RELEASE_FULL// /-}"
 
 APT_STATEDIR_LIVE="/var/lib/apt"
 APT_CACHEDIR_LIVE="/var/cache/apt"
