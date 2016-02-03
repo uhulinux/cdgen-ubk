@@ -7,7 +7,6 @@ engrampa
 eom
 eom-plugins
 marco
-mate-applet-lockkeys
 mate-applets
 mate-applet-uptime
 mate-backgrounds
@@ -18,7 +17,6 @@ mate-indicator-applet
 mate-media
 mate-menu
 mate-menus
-mate-netspeed
 mate-notification-daemon
 mate-panel
 mate-polkit

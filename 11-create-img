@@ -17,7 +17,7 @@ case $DESKTOP in
 		SIZE="4800M"
 		;;
 	cinnamon)
-		SIZE="5000M"
+		SIZE="5500M"
 		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.

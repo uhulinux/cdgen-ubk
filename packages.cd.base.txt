@@ -483,6 +483,7 @@ uhu-pkg
 uhu-pkgutils
 uhu-sysinfo
 uhu-utils
+uhu-wallpapers-ubk
 uhu-zeroconf
 unarj
 unclutter
