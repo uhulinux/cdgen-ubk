@@ -34,3 +34,7 @@ touch "$ROOTDIR"/etc/fstab
 if [ ! -f "$ROOTDIR"/etc/hostname ]; then
 	echo "localhost" > "$ROOTDIR"/etc/hostname
 fi
+
+# isolinux háttér beállítás
+rm -f "$ROOTDIR/boot/themes/bg.png"
+cp -a "$BASEDIR/isolinux-bg/$DESKTOP.png" "$ROOTDIR/boot/themes/bg.png"
