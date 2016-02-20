@@ -60,15 +60,15 @@ Nyelv kivalasztasa:
  lang=xx ahol xx erteke hu, en vagy de
   vagy
  LANG=hu_HU.UTF-8 formatumban barmilyen egyeb nyelv
- 
+
  A beallitas megorzodik a merevlemezen az /etc/sysconfig/locale fajlban, igy legkozelebb mar nincs szukseg a nyelv ujboli megadasara.
- 
+
 Select languge:
  To select other language then hungarian set one of the following boot parameter:
  lang=xx where xx is hu, en or de
   OR
  LANG=en_US.UTF-8 for any other settings
- 
+
  The settings will be saved to /etc/sysconfig/locale.
 END
 

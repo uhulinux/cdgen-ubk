@@ -12,12 +12,15 @@ for i in 1 2 3; do
 done
 
 grep "$ROOTDIR" /proc/mounts && exit 1
-rmdir "$ROOTDIR"
+
+# az 50-cleanup után esetlegesen megmaradt cuccok törlése
+rm -rf --one-file-system "$DVDDIR"
+rm -rf "$ROOTDIR"
+rm -rf "$TMPDIR"
+rm -rf "$WORKDIR/dpkg"
 
 rm -f "$IMG"
 rm -f "$ROIMG"
 rm -f "$PACKAGES_ALL"
 rm -f "$PACKAGES_CD"
 rm -f "$WORKDIR"/installed_packages.txt
-rm -rf "$WORKDIR/dpkg"
-rm -rf --one-file-system "$DVDDIR"
