@@ -54,6 +54,7 @@ cups
 curlftpfs
 cursor-theme-bluecurve
 cursor-theme-x.org
+cvs
 db4
 db4-utils
 dbus
@@ -291,6 +292,8 @@ sortdir
 sox
 squashfs-tools
 strace
+subversion
+subversion-tools
 sudo
 synaptic
 sysklogd
