@@ -257,7 +257,6 @@ mii-diag
 min1200w
 minicom
 mkinitrd
-module-init-tools
 mp3info
 mpage
 mplayer
