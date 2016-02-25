@@ -3,7 +3,7 @@
 . 00-common
 
 # apt cache tisztítása
-cd "$WORKDIR"/apt/cache/archives
+cd /var/cdgen/cache/apt/archives
 
 printf '%s\n' *.uhu |
   awk -F_ '{ print $1 }' |
@@ -23,11 +23,5 @@ cd "$BASEDIR"
 rm -rf --one-file-system "$DVDDIR"
 rm -rf "$ROOTDIR"
 rm -rf "$TMPDIR"
-rm -rf "$WORKDIR/dpkg"
-
-rm -f "$IMG"
-rm -f "$ROIMG"
-rm -f "$PACKAGES_ALL"
-rm -f "$PACKAGES_CD"
-rm -f "$WORKDIR"/installed_packages.txt
+rm -rf "$WORKDIR"
 

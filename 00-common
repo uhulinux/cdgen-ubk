@@ -59,9 +59,9 @@ APT_STATEDIR_LIVE="/var/lib/apt"
 APT_CACHEDIR_LIVE="/var/cache/apt"
 DPKG_STATEDIR_LIVE="/var/lib/dpkg"
 
-APT_STATEDIR="apt/lib"
-APT_CACHEDIR="apt/cache"
-DPKG_STATEDIR="dpkg/lib"
+APT_STATEDIR="/var/cdgen/lib/apt"
+APT_CACHEDIR="/var/cdgen/cache/apt"
+DPKG_STATEDIR="/var/cdgen/lib/dpkg"
 
 if [[ -f "$BASEDIR/sources.list" ]]; then
 	if [[ ! -f "/etc/apt/sources.list-cdgen" ]]; then
@@ -84,8 +84,8 @@ else
 	apt_preferences=""
 fi
 
-apt_statedir="-o Dir::State=$WORKDIR/$APT_STATEDIR"
-apt_cachedir="-o Dir::Cache=$WORKDIR/$APT_CACHEDIR"
+apt_statedir="-o Dir::State=$APT_STATEDIR"
+apt_cachedir="-o Dir::Cache=$APT_CACHEDIR"
 apt_options="$apt_sourcelist $apt_preferences $apt_statedir $apt_cachedir"
 
 echo -e "  \\e[1m${0##*/} ...\\e[0m"

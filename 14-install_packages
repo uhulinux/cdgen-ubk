@@ -17,7 +17,7 @@ mount --bind /proc "$ROOTDIR/proc"
 
 apt-get \
 	$apt_options \
-	-o Dir::State::status="$WORKDIR/$DPKG_STATEDIR/status" \
+	-o Dir::State::status="$DPKG_STATEDIR/status" \
 	-o Apt::Immediate-Configure="false" \
 	-o DPkg::Options::=--root="$ROOTDIR" \
 	-o Debug::NoLocking="true" \
