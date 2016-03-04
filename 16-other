@@ -15,6 +15,9 @@ else
 	echo "uhu-installer.desktop missing"
 fi
 
+# isolinux background a rendszerre is
+cp -a -f "$BASEDIR/isolinux-bg/$DESKTOP.png" "$ROOTDIR/usr/share/backgrounds/UHU/$DESKTOP.png"
+
 # default user settings
 echo "Set default user settings"
 case $DESKTOP in

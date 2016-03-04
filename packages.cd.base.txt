@@ -30,7 +30,6 @@ bluez
 bluez-firmware
 bluez-hcidump
 bonnie++
-bootloader-theme-uhu-installer
 bridge-utils
 btrfs-progs
 bzip2

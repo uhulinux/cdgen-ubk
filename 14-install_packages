@@ -26,7 +26,7 @@ apt-get \
 	install $(cat packages_cd.txt)
 
 chroot "$ROOTDIR" /sbin/uhu-pkg postinst +
-chroot "$ROOTDIR" dpkg-query -W -f='${Package} ${Version}\n' \* > "$WORKDIR"/installed_packages.txt
+chroot "$ROOTDIR" dpkg-query -W -f='${Package} ${Version}\n' \* > "$BASEDIR"/installed_packages_$DESKTOP.txt
 
 touch "$ROOTDIR"/etc/fstab
 
@@ -34,7 +34,3 @@ touch "$ROOTDIR"/etc/fstab
 if [ ! -f "$ROOTDIR"/etc/hostname ]; then
 	echo "localhost" > "$ROOTDIR"/etc/hostname
 fi
-
-# isolinux háttér beállítás
-rm -f "$ROOTDIR/boot/themes/bg.png"
-cp -a "$BASEDIR/isolinux-bg/$DESKTOP.png" "$ROOTDIR/boot/themes/bg.png"

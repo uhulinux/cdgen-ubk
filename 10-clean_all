@@ -13,6 +13,8 @@ done
 
 grep "$ROOTDIR" /proc/mounts && exit 1
 
+rm -f "$BASEDIR"/installed_packages_$DESKTOP.txt
+
 # az 50-cleanup után esetlegesen megmaradt cuccok törlése
 rm -rf --one-file-system "$DVDDIR"
 rm -rf "$ROOTDIR"

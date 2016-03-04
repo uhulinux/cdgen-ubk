@@ -55,7 +55,6 @@ ISODEBUG=1 \
 #chroot "$DVDDIR" \
 mkisofs \
 	-o "$ISODIR/$release_file.iso" \
-	-V "$cdlabel" \
 	-A "$cdlabel" \
 	-publisher "UHU-Linux Baráti Kör" \
 	-p "UHU-Linux DVD Generator" \
