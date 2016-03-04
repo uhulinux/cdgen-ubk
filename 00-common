@@ -51,8 +51,7 @@ else
 	echo "Hiányzik a release fájl!"
 fi
 
-cdlabel="$UHU_RELEASE"
-cdlabel_boot="${UHU_RELEASE// /_}"
+cdlabel="${UHU_RELEASE// /_}"
 release_file="${UHU_RELEASE_FULL// /-}"
 
 APT_STATEDIR_LIVE="/var/lib/apt"
