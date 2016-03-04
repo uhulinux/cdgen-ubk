@@ -28,6 +28,7 @@ modprobe loop >/dev/null 2>&1 || true
 loopdev="/dev/loop0"
 
 BASEDIR="$PWD"
+DATADIR="$BASEDIR/data"
 WORKDIR="$BASEDIR/Work"
 ROOTDIR="$WORKDIR/root"
 TMPDIR="$WORKDIR/tmp"
@@ -63,9 +64,9 @@ APT_STATEDIR="/var/cdgen/lib/apt"
 APT_CACHEDIR="/var/cdgen/cache/apt"
 DPKG_STATEDIR="/var/cdgen/lib/dpkg"
 
-if [[ -f "$BASEDIR/sources.list" ]]; then
+if [[ -f "$DATADIR/sources.list" ]]; then
 	if [[ ! -f "/etc/apt/sources.list-cdgen" ]]; then
-		cp "$BASEDIR/sources.list" /etc/apt/sources.list-cdgen
+		cp "$DATADIR/sources.list" /etc/apt/sources.list-cdgen
 	fi
 fi
 

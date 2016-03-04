@@ -92,8 +92,8 @@ fi
 if [ -f rescue.txt ]; then
 	mv rescue.txt packages_cd.txt
 else
-	cp packages.cd.base.txt packages_cd.txt
-	cat packages.$DESKTOP.txt >> packages_cd.txt
+	cp "$DATADIR"/packages.cd.base.txt packages_cd.txt
+	cat "$DATADIR"/packages.$DESKTOP.txt >> packages_cd.txt
 fi
 
 for i in [0-9][0-9]-*; do

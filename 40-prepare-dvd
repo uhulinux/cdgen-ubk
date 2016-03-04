@@ -74,4 +74,4 @@ cp -a "$ROOTDIR/usr/share/syslinux/isolinux.bin" "$DVDDIR/boot/isolinux/isolinux
 for i in ldlinux.c32 libcom32.c32 libutil.c32 vesamenu.c32; do
 	cp -a "$ROOTDIR/usr/share/syslinux/$i" "$DVDDIR/boot/isolinux/"
 done
-cp -a -f "$BASEDIR/isolinux-bg/$DESKTOP.png" "$DVDDIR/boot/themes/bg.png"
+cp -a -f "$DATADIR/isolinux-bg/$DESKTOP.png" "$DVDDIR/boot/themes/bg.png"
