@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+. 00-common
+
 case $1 in
 	gnome)
 		export DESKTOP=gnome
@@ -83,7 +85,7 @@ case $1 in
 		;;
 esac
 
-mkdir -p $PWD/Work
+mkdir -p $WORKDIR
 
 if [ -f packages_cd.txt ]; then
 	rm -f packages_cd.txt
@@ -92,8 +94,8 @@ fi
 if [ -f rescue.txt ]; then
 	mv rescue.txt packages_cd.txt
 else
-	cp "$DATADIR"/packages.cd.base.txt packages_cd.txt
-	cat "$DATADIR"/packages.$DESKTOP.txt >> packages_cd.txt
+	cp "$DATADIR"/packages.cd.base.txt $BASEDIR/packages_cd.txt
+	cat "$DATADIR"/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
 fi
 
 for i in [0-9][0-9]-*; do

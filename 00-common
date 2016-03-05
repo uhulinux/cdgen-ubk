@@ -14,7 +14,7 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=C
 unset  LANGUAGE
-export lang="$(<language)"
+export lang="hu"
 
 export PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
@@ -35,7 +35,6 @@ TMPDIR="$WORKDIR/tmp"
 DVDDIR="$WORKDIR/DVD"
 ISODIR="$BASEDIR/ISO"
 ISODATE=$(date '+%F')
-#ISODATE=$(date '+%Y.%m.%d')
 
 IMG_NAME="uhulinux.img"
 ROIMG_NAME="uhulinux.roimg"
@@ -52,7 +51,6 @@ else
 	echo "Hiányzik a release fájl!"
 fi
 
-# cdlabel="${UHU_RELEASE// /_}"
 cdlabel="UHU-Linux-Live"
 release_file="${UHU_RELEASE_FULL// /-}"
 
