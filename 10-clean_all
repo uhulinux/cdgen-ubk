@@ -3,6 +3,7 @@
 . 00-common
 
 for i in 1 2 3; do
+	umount    "$ROOTDIR/dev/shm"	2>/dev/null || true
 	umount    "$ROOTDIR/dev"	2>/dev/null || true
 	umount -d "$ROOTDIR/mnt"	2>/dev/null || true
 	umount    "$ROOTDIR/proc"	2>/dev/null || true

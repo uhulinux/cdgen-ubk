@@ -2,7 +2,6 @@
 a2ps
 acl
 acpitool
-acx-fw
 alien
 antiword
 aoetools
@@ -12,7 +11,6 @@ apache-mod-php
 apmd
 apt
 at
-atapci
 autoconf
 automake
 avahi
@@ -70,7 +68,7 @@ dl
 dmidecode
 dosfstools
 dpkg
-drbd
+drbd-utils
 dselect
 dump
 dvdauthor
@@ -158,8 +156,6 @@ iptables
 iptables-utils
 iptraf
 iputils
-ipw2100-fw
-ipw2200-fw
 irda-utils
 iscsitarget
 isdn4k-utils
@@ -272,7 +268,6 @@ rpcbind
 rpm
 rp-pppoe
 rsync
-rte
 samba-server
 sane-frontends
 sbm
@@ -370,7 +365,6 @@ xsane
 xterm
 xzoom
 ytalk
-zd1211-firmware
 zip
 zisofs-tools
 zvbi

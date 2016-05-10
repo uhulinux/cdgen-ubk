@@ -14,6 +14,8 @@
 trap "umount $ROOTDIR/proc" EXIT
 mkdir -p "$ROOTDIR/proc"
 mount --bind /proc "$ROOTDIR/proc"
+mkdir -p "$ROOTDIR/dev"
+mount --bind /dev "$ROOTDIR/dev"
 
 apt-get \
 	$apt_options \
@@ -26,7 +28,8 @@ apt-get \
 	install $(cat packages_cd.txt)
 
 chroot "$ROOTDIR" /sbin/uhu-pkg postinst +
-chroot "$ROOTDIR" dpkg-query -W -f='${Package} ${Version}\n' \* > "$BASEDIR"/installed_packages_$DESKTOP.txt
+# chroot "$ROOTDIR" dpkg-query -W -f='${Package} ${Version}\n' \* > "$BASEDIR"/installed_packages_$DESKTOP.txt
+chroot "$ROOTDIR" dpkg-query -W -f='${Package}\n' \* > "$BASEDIR"/installed_packages_$DESKTOP.txt
 
 touch "$ROOTDIR"/etc/fstab
 
