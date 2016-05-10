@@ -14,7 +14,7 @@ lxqt-runner
 lxqt-session
 obconf-qt
 pcmanfm-qt
-qpdfview-qt5
+qpdfview
 qterminal
 sddm
 xarchiver
