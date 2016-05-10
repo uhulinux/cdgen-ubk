@@ -7,17 +7,20 @@ case $DESKTOP in
 	gnome)
 		SIZE="5500M"
 		;;
+	cinnamon)
+		SIZE="5500M"
+		;;
 	mate)
 		SIZE="5200M"
 		;;
 	xfce)
 		SIZE="5000M"
 		;;
+	kde)
+		SIZE="5600M"
+		;;
 	lxqt)
 		SIZE="4800M"
-		;;
-	cinnamon)
-		SIZE="5500M"
 		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.

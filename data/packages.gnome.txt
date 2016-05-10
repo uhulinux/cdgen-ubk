@@ -41,7 +41,6 @@ planner
 polkit-gnome
 sound-juicer
 totem
-totem-mozilla-plugin
 tracker-plugin-firefox
 tracker-plugin-nautilus
 tracker-plugin-thunderbird

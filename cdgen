@@ -7,6 +7,10 @@ case $1 in
 		export DESKTOP=gnome
 		export DESKTOPNAME=GNOME
 		;;
+	cinnamon)
+		export DESKTOP=cinnamon
+		export DESKTOPNAME=Cinnamon
+		;;
 	mate)
 		export DESKTOP=mate
 		export DESKTOPNAME=MATE
@@ -15,13 +19,13 @@ case $1 in
 		export DESKTOP=xfce
 		export DESKTOPNAME=XFCE
 		;;
+	kde)
+		export DESKTOP=kde
+		export DESKTOPNAME=KDE
+		;;
 	lxqt)
 		export DESKTOP=lxqt
 		export DESKTOPNAME=LXQt
-		;;
-	cinnamon)
-		export DESKTOP=cinnamon
-		export DESKTOPNAME=Cinnamon
 		;;
 	rescue)
 		export DESKTOP=rescue
@@ -49,7 +53,7 @@ case $1 in
 		echo "bootloader-theme-uhu-installer" >> rescue.txt
 		;;
 	--help|*)
-		printf '\e[0;31m		Használat: ./cdgen gnome|mate|xfce|lxqt|rescue [user] [UHU_RELEASE tartalma]
+		printf '\e[0;31m		Használat: ./cdgen gnome|cinnamon|mate|xfce|kde|lxqt|rescue [user] [UHU_RELEASE tartalma]
 		Jelenleg csak ezekre készít iso-t.
 
 		A rescue választása a futtató gépen telepített rendszerről készít bootolható
@@ -69,13 +73,16 @@ case $1 in
 		leáll.
 
 
-		Fájlok:
+		Fájlok: (a data alkönyvtárban)
 		packages.cd.orig.txt: az uhu svn-ben lévő cdgen csomaglistája
 		packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
-		packages.gnome.txt: GNOME3 csomaglista; kiegészíti a packages.cd.base.txt listáját
-		packages.lxqt.txt: LXQT csomaglista; kiegészíti a packages.cd.base.txt listáját
+		packages.gnome.txt: GNOME 3 csomaglista; kiegészíti a packages.cd.base.txt listáját
+		packages.cinnamon.txt: Cinnamon csomaglista; kiegészíti a packages.cd.base.txt listáját
 		packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáját
 		packages.xfce.txt: XFCE csomaglista; kiegészíti a packages.cd.base.txt listáját
+		packages.kde.txt: KDE 5 csomaglista; kiegészíti a packages.cd.base.txt listáját
+		packages.lxqt.txt: LXQT csomaglista; kiegészíti a packages.cd.base.txt listáját
+		sources.list: saját sources.list az apt-hoz, az /etc/apt alá kerül sources.list-cdgen néven
 
 		Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz,
 		kiegészítve a desktop nevével és az aktuális dátummal, az "UHU-Linux" stringhez fűzve.
