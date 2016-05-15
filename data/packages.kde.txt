@@ -16,6 +16,7 @@ khelpcenter
 khotkeys
 kinfocenter
 kmenuedit
+konsole
 kpartitionmanager
 krusader
 kscreen

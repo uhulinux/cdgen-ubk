@@ -314,8 +314,6 @@ udftools
 udisks
 udisks2
 uhu-base
-uhubuild-config
-uhubuild-helpers
 uhubuild-here
 uhubuild-under-chroot
 uhu-installer-ubk

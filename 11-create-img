@@ -17,7 +17,7 @@ case $DESKTOP in
 		SIZE="5000M"
 		;;
 	kde)
-		SIZE="5600M"
+		SIZE="5700M"
 		;;
 	lxqt)
 		SIZE="4800M"
