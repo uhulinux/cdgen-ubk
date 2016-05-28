@@ -3,19 +3,10 @@
 . 00-common
 
 # apt cache tisztítása
-cd /var/cdgen/cache/apt/archives
-
-printf '%s\n' *.uhu |
-  awk -F_ '{ print $1 }' |
-  sort -u |
-  while read pkg; do
-    pkg_files=($(ls -t "$pkg"_*.uhu))
-    nr=${#pkg_files[@]}
-    if ((nr > 1)); then
-      unset pkg_files[0]
-      rm "${pkg_files[@]}"
-    fi
-  done
+apt-get \
+	$apt_options \
+	-o Dir::State::status="$DPKG_STATEDIR/status" \
+	autoclean
 
 cd "$BASEDIR"
 
