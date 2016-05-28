@@ -27,6 +27,10 @@ case $1 in
 		export DESKTOP=lxqt
 		export DESKTOPNAME=LXQt
 		;;
+	lxde)
+		export DESKTOP=lxde
+		export DESKTOPNAME=LXDE
+		;;
 	rescue)
 		export DESKTOP=rescue
 		export DESKTOPNAME=rescue
@@ -53,7 +57,7 @@ case $1 in
 		echo "bootloader-theme-uhu-installer" >> rescue.txt
 		;;
 	--help|*)
-		printf '\e[0;31m		Használat: ./cdgen gnome|cinnamon|mate|xfce|kde|lxqt|rescue [user] [UHU_RELEASE tartalma]
+		printf '\e[0;31m		Használat: ./cdgen gnome|cinnamon|mate|xfce|kde|lxqt|lxde|rescue [user] [UHU_RELEASE tartalma]
 		Jelenleg csak ezekre készít iso-t.
 
 		A rescue választása a futtató gépen telepített rendszerről készít bootolható
@@ -82,7 +86,8 @@ case $1 in
 		packages.xfce.txt: XFCE csomaglista; kiegészíti a packages.cd.base.txt listáját
 		packages.kde.txt: KDE 5 csomaglista; kiegészíti a packages.cd.base.txt listáját
 		packages.lxqt.txt: LXQT csomaglista; kiegészíti a packages.cd.base.txt listáját
-		sources.list: saját sources.list az apt-hoz, az /etc/apt alá kerül sources.list-cdgen néven
+		packages.lxde.txt: LXDE csomaglista; kiegészíti a packages.cd.base.txt listáját
+		sources.list: saját sources.list az apt-hoz, az /etc/apt alá is kerülhet sources.list-cdgen néven
 
 		Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz,
 		kiegészítve a desktop nevével és az aktuális dátummal, az "UHU-Linux" stringhez fűzve.

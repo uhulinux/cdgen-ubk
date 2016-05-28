@@ -65,3 +65,11 @@ if [ -s "$ROOTDIR"/etc/sddm.conf ]; then
 		chroot "$ROOTDIR" systemctl enable sddm
 	fi
 fi
+# lxdm autologin
+if [ -s "$ROOTDIR"/etc/lxdm/lxdm.conf ]; then
+	# enable lxdm
+	echo "Enable lxdm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+		chroot "$ROOTDIR" systemctl enable lxdm
+	fi
+fi

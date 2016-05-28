@@ -1,0 +1,17 @@
+icon-theme-lxde
+libfm
+lxappearance
+lxappearance-obconf
+lxde-common
+lxdm
+lxinput
+lxmenu-data
+lxpanel
+lxrandr
+lxsession
+lxtask
+lxterminal
+menu-cache
+obconf
+openbox
+pcmanfm
