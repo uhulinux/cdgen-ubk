@@ -5,22 +5,22 @@
 # image size in dd format
 case $DESKTOP in
 	gnome)
-		SIZE="5500M"
-		;;
-	cinnamon)
-		SIZE="5500M"
-		;;
-	mate)
-		SIZE="5200M"
-		;;
-	xfce)
-		SIZE="5000M"
-		;;
-	kde)
 		SIZE="5700M"
 		;;
+	cinnamon)
+		SIZE="5700M"
+		;;
+	mate)
+		SIZE="5400M"
+		;;
+	xfce)
+		SIZE="5200M"
+		;;
+	kde)
+		SIZE="5900M"
+		;;
 	lxqt)
-		SIZE="4800M"
+		SIZE="5200M"
 		;;
 	lxde)
 		SIZE="4000M"

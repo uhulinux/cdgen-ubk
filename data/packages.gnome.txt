@@ -17,6 +17,7 @@ gnome-control-center
 gnome-desktop
 gnome-disk-utility
 gnome-doc-utils
+gnome-initial-setup
 gnome-keyring
 gnome-logs
 gnome-menus

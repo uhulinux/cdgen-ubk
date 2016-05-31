@@ -2,21 +2,18 @@
 
 . 00-common
 
-for i in 1 2 3; do
-	umount    "$ROOTDIR/dev/shm"	2>/dev/null || true
-	umount    "$ROOTDIR/dev"	2>/dev/null || true
-	umount -d "$ROOTDIR/mnt"	2>/dev/null || true
-	umount    "$ROOTDIR/proc"	2>/dev/null || true
-	umount    "$ROOTDIR/sys"	2>/dev/null || true
-	umount    "$ROOTDIR/tmp"	2>/dev/null || true
-	umount -d "$ROOTDIR"	2>/dev/null || true
-done
+umount    "$ROOTDIR/proc"	2>/dev/null || true
+umount    "$ROOTDIR/sys"	2>/dev/null || true
+umount    "$ROOTDIR/dev"	2>/dev/null || true
+umount    "$ROOTDIR/tmp"	2>/dev/null || true
+umount -d "$ROOTDIR/mnt"	2>/dev/null || true
+umount -d "$ROOTDIR"		2>/dev/null || true
 
 grep "$ROOTDIR" /proc/mounts && exit 1
 
 rm -f "$BASEDIR"/installed_packages_$DESKTOP.txt
 
-# az 50-cleanup után esetlegesen megmaradt cuccok törlése
+# megmaradt cuccok törlése
 rm -rf --one-file-system "$DVDDIR"
 rm -rf "$ROOTDIR"
 rm -rf "$TMPDIR"
