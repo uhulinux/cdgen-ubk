@@ -17,3 +17,7 @@ if [ -d "$dbusdir" ]; then
 	kill -9 `pidof -s dbus-launch`
 	rm -Rf "$ROOTDIR/root/.dbus"
 fi
+
+# gpg-agent kiirtása a chroot-ból, hogy rendesen umountolni lehessen a munkakönyvtárat
+kill -9 `pidof -s gpg-agent`
+
