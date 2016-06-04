@@ -37,8 +37,9 @@ esac
 dd if=/dev/zero of="$IMG" bs=1 seek="$SIZE" count=0
 
 losetup "$loopdev" "$IMG"
-mkfs.ext4 -E resize=4294967295 -O uninit_bg,^has_journal "$loopdev"
+mkfs.ext4 -text4 -m2 -LUHU "$loopdev"
 tune2fs -i0 -c0 -m2 -LUHU "$loopdev"
+
 mkdir -p "$ROOTDIR"
 mount "$loopdev" "$ROOTDIR"
 mkdir -p "$TMPDIR"

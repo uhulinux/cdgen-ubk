@@ -136,7 +136,7 @@ gpm
 gptfdisk
 gqview
 grep
-grub2
+grub
 gtk-stock-icons
 gutenprint
 gvfs
