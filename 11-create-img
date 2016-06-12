@@ -23,7 +23,7 @@ case $DESKTOP in
 		SIZE="5200M"
 		;;
 	lxde)
-		SIZE="4000M"
+		SIZE="5200M"
 		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.

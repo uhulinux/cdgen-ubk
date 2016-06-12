@@ -31,6 +31,7 @@ bonnie++
 bridge-utils
 btrfs-progs
 bzip2
+bzr
 cabextract
 cairo
 ccache
@@ -51,7 +52,6 @@ cups
 curlftpfs
 cursor-theme-bluecurve
 cursor-theme-x.org
-cvs
 db4
 db4-utils
 dbus
@@ -255,6 +255,7 @@ psutils
 pv
 pwgen
 python
+rar
 rarian
 rdate
 rdesktop
@@ -316,7 +317,7 @@ udisks2
 uhu-base
 uhubuild-here
 uhubuild-under-chroot
-uhu-installer-ubk
+uhu-installer
 uhu-pixmaps
 uhu-pkg
 uhu-pkgutils
@@ -324,9 +325,7 @@ uhu-sysinfo
 uhu-utils
 uhu-wallpapers-ubk
 uhu-zeroconf
-unarj
 unclutter
-unrar
 unzip
 upower
 usb-modeswitch
