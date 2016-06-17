@@ -20,6 +20,6 @@ fi
 
 # gpg-agent kiirtása a chroot-ból, hogy rendesen umountolni lehessen a munkakönyvtárat
 if [ `pidof -s gpg-agent` ];then
-kill -9 `pidof -s gpg-agent`
+	kill -9 `pidof -s gpg-agent`
 fi
 

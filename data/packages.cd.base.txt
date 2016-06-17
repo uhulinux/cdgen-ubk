@@ -41,6 +41,7 @@ cdp
 cdrdao
 cdrkit
 cdtest
+chrony
 claws-mail
 convmv
 coreutils
@@ -107,7 +108,6 @@ foomatic-db
 foomatic-db-engine
 fortune
 fortune-hu
-freeipmi
 ftp
 fuse
 fuse-mhddfs
@@ -221,7 +221,6 @@ nscd
 nss-ldap
 nss-mdns
 ntalk
-ntp
 numlockx
 openipmi
 open-iscsi
@@ -317,6 +316,7 @@ udisks2
 uhu-base
 uhubuild-here
 uhubuild-under-chroot
+uhu-initscripts
 uhu-installer
 uhu-pixmaps
 uhu-pkg
