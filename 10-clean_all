@@ -19,3 +19,9 @@ rm -rf "$ROOTDIR"
 rm -rf "$TMPDIR"
 rm -rf "$WORKDIR"
 
+# apt cache tisztítása
+apt-get \
+	$apt_options \
+	-o Dir::State::status="$DPKG_STATEDIR/status" \
+	autoclean
+

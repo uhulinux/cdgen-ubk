@@ -2,12 +2,6 @@
 
 . 00-common
 
-# apt cache tisztítása
-apt-get \
-	$apt_options \
-	-o Dir::State::status="$DPKG_STATEDIR/status" \
-	autoclean
-
 cd "$BASEDIR"
 
 # minden más tisztítása
@@ -15,4 +9,3 @@ rm -rf --one-file-system "$DVDDIR"
 rm -rf "$ROOTDIR"
 rm -rf "$TMPDIR"
 rm -rf "$WORKDIR"
-

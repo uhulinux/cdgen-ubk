@@ -11,7 +11,7 @@ case $DESKTOP in
 		SIZE="5700M"
 		;;
 	mate)
-		SIZE="5400M"
+		SIZE="5700M"
 		;;
 	xfce)
 		SIZE="5200M"
