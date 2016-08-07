@@ -110,7 +110,6 @@ fortune
 fortune-hu
 ftp
 fuse
-fuse-mhddfs
 fuse-ntfs-3g
 fuse-smbnetfs
 fuse-sshfs

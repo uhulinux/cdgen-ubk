@@ -3,6 +3,7 @@ caja
 caja-extension-atril
 caja-extension-engrampa
 caja-extensions
+caja-ideviceinfo
 engrampa
 eom
 eom-plugins
