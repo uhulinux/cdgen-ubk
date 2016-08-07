@@ -266,7 +266,6 @@ reps
 rng-tools
 rpcbind
 rpm
-rp-pppoe
 rsync
 samba-server
 sane-frontends
