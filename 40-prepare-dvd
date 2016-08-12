@@ -30,14 +30,14 @@ menu color cmdline 0 #ffffffff #00000000
 
 label UHU-Linux i386
 	menu label UHU-Linux i386
-    kernel /boot/bzimage.32
-    append initrd=/boot/initram.32 boot=livecd:$cdlabel
+    kernel /boot/kernel.32
+    append initrd=/boot/initrd.32 boot=livecd:$cdlabel
 menu default
 
 label UHU-Linux i386 nomodeset
 	menu label UHU-Linux i386 nomodeset
-    kernel /boot/bzimage.32
-    append initrd=/boot/initram.32 boot=livecd:$cdlabel nomodeset
+    kernel /boot/kernel.32
+    append initrd=/boot/initrd.32 boot=livecd:$cdlabel nomodeset
 
 label memtest
 	menu label Memtest
@@ -65,8 +65,10 @@ END
 
 
 mkdir -p "$DVDDIR/boot"
-cp "$ROOTDIR"/boot/bzImage-*.i386 "$DVDDIR/boot/bzimage.32"
-cp "$ROOTDIR"/boot/initramfs-*.i386.cpio.gz "$DVDDIR/boot/initram.32"
+# cp "$ROOTDIR"/boot/bzImage-*.i386 "$DVDDIR"/boot/bzimage.32
+# cp "$ROOTDIR"/boot/initramfs-*.i386.cpio.gz "$DVDDIR"/boot/initram.32
+cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.i386) "$DVDDIR"/boot/kernel.32
+cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.i386.gz) "$DVDDIR"/boot/initrd.32
 mkdir -p "$DVDDIR/boot/themes"
 mkdir -p "$DVDDIR/boot/isolinux"
 cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/boot/memtest"
