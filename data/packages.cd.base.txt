@@ -241,7 +241,6 @@ pidgin
 pigz
 pkgconfig
 polkit
-polkit-qt
 postfix
 powertop
 ppp

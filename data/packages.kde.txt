@@ -12,7 +12,6 @@ kdecoration
 kde-gtk-config
 kdeplasma-addons
 kgamma5
-khelpcenter
 khotkeys
 kinfocenter
 kmenuedit
