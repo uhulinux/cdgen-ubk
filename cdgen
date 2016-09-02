@@ -20,7 +20,7 @@ case $1 in
 		export DESKTOPNAME=XFCE
 		;;
 	kde)
-		export DESKTOP=kde
+		export DESKTOP=plasma
 		export DESKTOPNAME=KDE
 		;;
 	lxqt)
