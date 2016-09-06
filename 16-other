@@ -10,7 +10,7 @@ if [ -f "$ROOTDIR"/usr/share/applications/uhu-installer.desktop ]; then
 	mkdir -p "$ROOTDIR"/home/uhu/Asztal
 	cp "$ROOTDIR"/usr/share/applications/uhu-installer.desktop "$ROOTDIR"/home/uhu/Asztal/uhu-installer.desktop
 
-	chmod 644 "$ROOTDIR"/home/uhu/Asztal/uhu-installer.desktop
+	chmod 755 "$ROOTDIR"/home/uhu/Asztal/uhu-installer.desktop
 else
 	echo "uhu-installer.desktop missing"
 fi
