@@ -2,7 +2,6 @@
 a2ps
 acl
 acpitool
-alien
 antiword
 aoetools
 apache
@@ -161,7 +160,7 @@ isdn4k-utils
 ispell
 jfsutils
 joe
-jpeg-tools
+jpeg-turbo-tools
 kbd
 kernel
 lame
