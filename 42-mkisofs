@@ -6,7 +6,7 @@
 cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
 cd "$DVDDIR/"
 md5sum -b "$IMG_NAME" > "$DVDDIR/md5sum"
-sha256sum -b "$IMG_NAME" > "$DVDDIR/shasum"
+# sha256sum -b "$IMG_NAME" > "$DVDDIR/shasum"
 cd -
 
 echo "Creating ISO image..."
