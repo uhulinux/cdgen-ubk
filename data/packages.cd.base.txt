@@ -93,14 +93,10 @@ fonts-liberation
 fonts-libertine
 fonts-symbola
 fonts-unicode
-fonts-x.org-100dpi-iso-10646
-fonts-x.org-100dpi-other
-fonts-x.org-75dpi-iso-10646
-fonts-x.org-75dpi-other
 fonts-x.org-base
-fonts-x.org-misc-iso-10646
-fonts-x.org-misc-iso-8859-1
-fonts-x.org-misc-other
+fonts-x.org-iso-10646
+fonts-x.org-iso-8859-1
+fonts-x.org-other
 fonts-x.org-ttf
 fonts-x.org-type1
 foomatic-db
