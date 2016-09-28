@@ -1,5 +1,4 @@
 atril
-gtk2-theme-xfce
 lightdm
 lightdm-gtk-greeter
 midori

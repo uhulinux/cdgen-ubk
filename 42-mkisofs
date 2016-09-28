@@ -72,7 +72,7 @@ sync
 echo -n "Calculating checksums..."
 cd "$ISODIR"
 md5sum -b "$release_file.iso" > "$ISODIR/$release_file.md5" &
-sha256sum -b "$release_file.iso" > "$ISODIR/$release_file.sha" &
+# sha256sum -b "$release_file.iso" > "$ISODIR/$release_file.sha" &
 
 cd -
 
