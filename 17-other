@@ -4,6 +4,7 @@
 
 # add uhu-installer icon to desktop
 echo "Add uhu-installer icon to desktop"
+
 chroot "$ROOTDIR" xdg-user-dirs-update
 
 if [ -f "$ROOTDIR"/usr/share/applications/uhu-installer.desktop ]; then
@@ -23,7 +24,7 @@ echo "Set default user settings"
 case $DESKTOP in
 	gnome)
 		echo 'gsettings set org.gnome.desktop.background show-desktop-icons true' >> "$ROOTDIR"/home/uhu/.profile
-		echo 'gsettings set org.gnome.shell enabled-extensions "['apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']"' >> "$ROOTDIR"/home/uhu/.profile
+		echo 'gsettings set org.gnome.shell enabled-extensions "["apps-menu@gnome-shell-extensions.gcampax.github.com","drive-menu@gnome-shell-extensions.gcampax.github.com","places-menu@gnome-shell-extensions.gcampax.github.com","window-list@gnome-shell-extensions.gcampax.github.com"]"' >> "$ROOTDIR"/home/uhu/.profile
 		;;
 	xfce)
 		mkdir -p "$ROOTDIR"/home/uhu/.config/xfce4/xfconf/xfce-perchannel-xml
