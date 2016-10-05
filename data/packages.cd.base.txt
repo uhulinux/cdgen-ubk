@@ -339,6 +339,7 @@ x11vnc
 xauth
 xbindkeys
 xdg-user-dirs
+xdg-user-dirs-gtk
 xdg-utils
 xfsprogs
 xinit
