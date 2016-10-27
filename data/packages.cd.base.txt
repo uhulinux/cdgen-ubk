@@ -255,7 +255,6 @@ rdiff-backup
 recode
 reiser4progs
 reiserfsprogs
-reps
 rng-tools
 rpcbind
 rpm

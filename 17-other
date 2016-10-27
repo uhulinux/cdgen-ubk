@@ -23,7 +23,7 @@ cp -a -f "$DATADIR/isolinux-bg/$DESKTOP.png" "$ROOTDIR/usr/share/backgrounds/UHU
 echo "Set default user settings"
 case $DESKTOP in
 	gnome)
-		echo 'gsettings set org.gnome.desktop.background show-desktop-icons true' >> "$ROOTDIR"/home/uhu/.profile
+		# echo 'gsettings set org.gnome.desktop.background show-desktop-icons true' >> "$ROOTDIR"/home/uhu/.profile
 		echo 'gsettings set org.gnome.shell enabled-extensions "["apps-menu@gnome-shell-extensions.gcampax.github.com","drive-menu@gnome-shell-extensions.gcampax.github.com","places-menu@gnome-shell-extensions.gcampax.github.com","window-list@gnome-shell-extensions.gcampax.github.com"]"' >> "$ROOTDIR"/home/uhu/.profile
 		;;
 	xfce)
