@@ -19,7 +19,7 @@ leáll.
 
 
 Fájlok: (a data alkönyvtárban)
-packages.cd.orig.txt: az uhu svn-ben lévő cdgen csomaglistája
+packages.cd.orig.txt: az uhu svn-ben lévő, eredeti cdgen csomaglistája
 packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
 packages.gnome.txt: GNOME 3 csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.cinnamon.txt: Cinnamon csomaglista; kiegészíti a packages.cd.base.txt listáját
@@ -27,14 +27,24 @@ packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáj
 packages.xfce.txt: XFCE csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.kde.txt: KDE 5 csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.lxqt.txt: LXQT csomaglista; kiegészíti a packages.cd.base.txt listáját
-sources.list: saját sources.list az apt-hoz, az /etc/apt alá kerül sources.list-cdgen néven
+sources.list: saját sources.list az apt-hoz
 
-Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz, 
+Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz,
 kiegészítve a desktop nevével és az aktuális dátummal, az "UHU-Linux" stringhez fűzve.
-Így ha az UHU_RELEASE tartalma "3 UBK" (idézőjelek nélkül), 
+Így ha az UHU_RELEASE tartalma "3 UBK" (idézőjelek nélkül),
 akkor a címke UHU-Linux 3 UBK-MATE-20151018, az iso neve UHU-Linux-3-UBK-MATE-20151018.iso lesz.
 
-patched packages:
-- uhu-installer
-- gsettings-desktop-schemas: screensaver aktiválás tiltása
-- gnome-settings-daemon: screen dim tiltása
+depends:
+
+apt
+bash
+cdrkit (genisoimage) (mkisofs -> genisoimage)
+coreutils
+e2fsprogs
+grep
+procps (kill, pidof)
+sed
+shadow (passwd)
+squashfs-tools
+syslinux-utils (isohybrid)
+util-linux
