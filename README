@@ -27,6 +27,7 @@ packages.mate.txt: MATE csomaglista; kiegészíti a packages.cd.base.txt listáj
 packages.xfce.txt: XFCE csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.kde.txt: KDE 5 csomaglista; kiegészíti a packages.cd.base.txt listáját
 packages.lxqt.txt: LXQT csomaglista; kiegészíti a packages.cd.base.txt listáját
+packages.lxde.txt: LXDE csomaglista; kiegészíti a packages.cd.base.txt listáját
 sources.list: saját sources.list az apt-hoz
 
 Az iso neve (és az isolinux menüjének címe is) az UHU_RELEASE fájl tartalma lesz,
