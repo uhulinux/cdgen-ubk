@@ -1,5 +1,4 @@
 atril
 lightdm
 lightdm-gtk-greeter
-midori
-xfce4
+xfce
