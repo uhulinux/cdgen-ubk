@@ -367,6 +367,7 @@ x.org-video-amd
 x.org-video-apm
 x.org-video-ark
 x.org-video-ast
+x.org-video-ati
 x.org-video-chips
 x.org-video-cirrus
 x.org-video-dummy
