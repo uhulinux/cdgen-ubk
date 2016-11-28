@@ -399,3 +399,6 @@ ytalk
 zip
 zisofs-tools
 zvbi
+caja-ideviceinfo
+mate
+sddm
