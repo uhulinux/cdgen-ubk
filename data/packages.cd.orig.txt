@@ -399,6 +399,8 @@ nmap
 notification-daemon
 nrg2iso
 nscd
+nss-ldap
+nss-mdns
 ntalk
 ntp
 numlockx

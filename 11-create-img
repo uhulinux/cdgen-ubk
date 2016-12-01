@@ -14,16 +14,16 @@ case $DESKTOP in
 		SIZE="6500M"
 		;;
 	xfce)
-		SIZE="6200M"
+		SIZE="6400M"
 		;;
 	kde)
 		SIZE="7400M"
 		;;
 	lxqt)
-		SIZE="6200M"
+		SIZE="6400M"
 		;;
 	lxde)
-		SIZE="6200M"
+		SIZE="6400M"
 		;;
 	rescue)
 		SIZE="8400M" # Ez még lehet nagyobb is.
