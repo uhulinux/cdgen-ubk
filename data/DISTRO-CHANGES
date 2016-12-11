@@ -1,7 +1,6 @@
 3 -> UBK1
 
 grub2 -> grub, a korábbi grub kidobva
-ntp -> chrony
 
 fonts-x.org-{100dpi,75dpi,misc}-iso-10646 -> fonts-x.org-iso-10646
 fonts-x.org-{100dpi,75dpi,misc}-other-> fonts-x.org-other
