@@ -1,3 +1,2 @@
-caja-ideviceinfo
 mate
 sddm
