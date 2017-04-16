@@ -148,7 +148,6 @@ iproute2
 ipsec-tools
 iptables
 iptables-utils
-iptraf
 iputils
 irda-utils
 iscsitarget
