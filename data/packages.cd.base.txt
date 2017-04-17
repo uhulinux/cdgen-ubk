@@ -190,7 +190,6 @@ mdadm
 memtest86+
 mercurial
 mesa
-microcodectl
 mii-diag
 min1200w
 minicom
