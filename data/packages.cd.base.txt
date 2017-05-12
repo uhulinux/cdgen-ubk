@@ -103,7 +103,6 @@ foomatic-db
 foomatic-db-engine
 fortune
 fortune-hu
-ftp
 fuse
 fuse-ntfs-3g
 fuse-smbnetfs
@@ -142,6 +141,7 @@ hplip
 htop
 imagemagick
 indent
+inetutils
 intltool
 iperf
 iproute2
@@ -285,11 +285,8 @@ systemd
 tar
 tcpdump
 tcp-wrappers
-telnet
 terminfo
 texinfo
-tftp
-tftpd
 tigervnc
 traceroute
 tree
