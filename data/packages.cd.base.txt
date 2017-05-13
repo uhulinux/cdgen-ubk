@@ -166,7 +166,6 @@ libreoffice
 libtool
 licenses
 links
-linphone
 linuxconsole
 linux-firmware
 lmsensors
