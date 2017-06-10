@@ -24,6 +24,7 @@ apt-get \
 	-o Dir::State::status="$DPKG_STATEDIR/status" \
 	-o Apt::Immediate-Configure="false" \
 	-o DPkg::Options::=--root="$ROOTDIR" \
+	-o DPkg::Options::=--force-architecture \
 	-o Debug::NoLocking="true" \
 	-o PackageManager::Configure="smart" \
 	--yes \
