@@ -36,7 +36,6 @@ cairo
 ccache
 cdctl
 cdk
-cdp
 cdrdao
 cdrkit
 cdtest
@@ -177,7 +176,6 @@ ltrace
 luit
 lvm
 m4
-madwifi-tools
 mailcount
 mailx
 make
@@ -189,14 +187,12 @@ mdadm
 memtest86+
 mercurial
 mesa
-mii-diag
 min1200w
 minicom
 mkinitrd
 mp3info
 mpage
 mplayer
-ncpfs
 ndiswrapper
 neon
 net-tools
@@ -265,7 +261,6 @@ setserial
 shadow
 shash
 simple-scan
-slmodem
 smartmontools
 smp-utils
 sortdir
@@ -308,7 +303,6 @@ uhu-sysinfo
 uhu-utils
 uhu-wallpapers-ubk
 uhu-zeroconf
-unclutter
 unzip
 upower
 usb-modeswitch
@@ -355,7 +349,6 @@ x.org-input-vmmouse
 x.org-input-void
 x.org-server
 x.org-utils
-x.org-video-amd
 x.org-video-apm
 x.org-video-ark
 x.org-video-ast
