@@ -81,10 +81,10 @@ fi
 
 apt_statedir="-o Dir::State=$APT_STATEDIR"
 apt_cachedir="-o Dir::Cache=$APT_CACHEDIR"
-if [ "$mode" ];then
-apt_arch="-o=APT::Architecture=amd64"
+if [ "$mode" ]; then
+	apt_arch="-o=APT::Architecture=amd64"
 else
-apt_arch="-o=APT::Architecture=i386"
+	apt_arch="-o=APT::Architecture=i386"
 fi
 apt_options="$apt_sourcelist $apt_arch $apt_preferences $apt_statedir $apt_cachedir"
 
