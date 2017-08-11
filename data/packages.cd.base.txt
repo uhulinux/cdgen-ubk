@@ -33,6 +33,7 @@ bzip2
 bzr
 cabextract
 cairo
+calamares
 ccache
 cdctl
 cdk
@@ -292,8 +293,6 @@ udftools
 udisks
 udisks2
 uhu-base
-uhubuild-here
-uhubuild-under-chroot
 uhu-initscripts
 uhu-installer
 uhu-pixmaps

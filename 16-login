@@ -54,6 +54,7 @@ if [ -s "$ROOTDIR"/etc/sddm.conf ]; then
 		chroot "$ROOTDIR" systemctl enable sddm
 	fi
 fi
+
 # lxdm autologin
 if [ -s "$ROOTDIR"/etc/lxdm/lxdm.conf ]; then
 	# enable lxdm

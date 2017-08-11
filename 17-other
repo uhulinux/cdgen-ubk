@@ -2,18 +2,18 @@
 
 . 00-common
 
-# add uhu-installer icon to desktop
-echo "Add uhu-installer icon to desktop"
+# add calamares icon to desktop
+echo "Add calamares icon to desktop"
 
 chroot "$ROOTDIR" xdg-user-dirs-update
 
-if [ -f "$ROOTDIR"/usr/share/applications/uhu-installer.desktop ]; then
+if [ -f "$ROOTDIR"/usr/share/applications/calamares.desktop ]; then
 	mkdir -p "$ROOTDIR"/home/uhu/Asztal
-	cp "$ROOTDIR"/usr/share/applications/uhu-installer.desktop "$ROOTDIR"/home/uhu/Asztal/uhu-installer.desktop
+	cp "$ROOTDIR"/usr/share/applications/calamares.desktop "$ROOTDIR"/home/uhu/Asztal/calamares.desktop
 
-	chmod 755 "$ROOTDIR"/home/uhu/Asztal/uhu-installer.desktop
+	chmod 755 "$ROOTDIR"/home/uhu/Asztal/calamares.desktop
 else
-	echo "uhu-installer.desktop missing"
+	echo "calamares.desktop missing"
 fi
 
 # isolinux background a rendszerre is
