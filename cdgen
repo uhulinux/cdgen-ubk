@@ -2,6 +2,15 @@
 
 . 00-common
 
+case `basename $0` in
+	cdgen)
+		export mode="32"
+		;;
+	cdgen64)
+		export mode="64"
+		;;
+esac
+
 case $1 in
 	gnome)
 		export DESKTOP=gnome

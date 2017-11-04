@@ -36,7 +36,6 @@ cairo
 calamares
 ccache
 cdctl
-cdk
 cdrdao
 cdrkit
 cdtest
@@ -121,7 +120,6 @@ ghostscript
 gimp
 git
 glibc-locales
-glitz
 gparted
 gpg
 gphoto2
@@ -147,7 +145,6 @@ iperf
 iproute2
 ipsec-tools
 iptables
-iptables-utils
 iputils
 irda-utils
 iscsitarget
@@ -177,8 +174,6 @@ ltrace
 luit
 lvm
 m4
-mailcount
-mailx
 make
 man-db
 man-pages
@@ -190,13 +185,13 @@ mercurial
 mesa
 min1200w
 minicom
+mkfontdir
 mkinitrd
 mp3info
 mpage
 mplayer
 ndiswrapper
 neon
-net-tools
 networkmanager
 networkmanager-openvpn
 networkmanager-pptp
@@ -206,7 +201,6 @@ nmap
 notification-daemon
 nrg2iso
 nscd
-ntalk
 numlockx
 openipmi
 open-iscsi
@@ -269,7 +263,6 @@ sox
 squashfs-tools
 strace
 subversion
-subversion-tools
 sudo
 synaptic
 sysklogd
@@ -293,7 +286,6 @@ udftools
 udisks
 udisks2
 uhu-base
-uhu-initscripts
 uhu-installer
 uhu-pixmaps
 uhu-pkg
@@ -327,11 +319,8 @@ xdg-user-dirs-gtk
 xdg-utils
 xfsprogs
 xinit
-xkb-utils
 xkeyboard-config
-x.org-apps
 x.org-bitmaps
-x.org-font-utils
 x.org-input-acecad
 x.org-input-aiptek
 x.org-input-elographics
@@ -347,7 +336,6 @@ x.org-input-synaptics
 x.org-input-vmmouse
 x.org-input-void
 x.org-server
-x.org-utils
 x.org-video-apm
 x.org-video-ark
 x.org-video-ast

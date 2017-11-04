@@ -7,3 +7,20 @@ fonts-x.org-{100dpi,75dpi,misc}-other-> fonts-x.org-other
 fonts-x.org-misc-iso-8859-1-> fonts-x.org-iso-8859-1
 
 jpeg-tools -> jpeg-turbo-tools
+
+ubk1 -> ubk2
+
+kidobva:
+iptables-utils
+mailcount
+mailx
+net-tools
+ntalk
+subversion-tools
+uhu-initscripts
+xkb-utils
+
+robbantva:
+x.org-apps
+x.org-font-utils
+x.org-utils
