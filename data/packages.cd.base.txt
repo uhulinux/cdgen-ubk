@@ -185,7 +185,6 @@ mercurial
 mesa
 min1200w
 minicom
-mkfontdir
 mkinitrd
 mp3info
 mpage
@@ -319,8 +318,10 @@ xdg-user-dirs-gtk
 xdg-utils
 xfsprogs
 xinit
+xkb-utils
 xkeyboard-config
 x.org-bitmaps
+x.org-font-utils
 x.org-input-acecad
 x.org-input-aiptek
 x.org-input-elographics
@@ -336,6 +337,7 @@ x.org-input-synaptics
 x.org-input-vmmouse
 x.org-input-void
 x.org-server
+x.org-utils
 x.org-video-apm
 x.org-video-ark
 x.org-video-ast

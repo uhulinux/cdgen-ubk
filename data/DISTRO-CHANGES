@@ -18,9 +18,4 @@ net-tools
 ntalk
 subversion-tools
 uhu-initscripts
-xkb-utils
-
-robbantva:
 x.org-apps
-x.org-font-utils
-x.org-utils
