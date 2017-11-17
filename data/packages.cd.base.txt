@@ -322,6 +322,7 @@ xkb-utils
 xkeyboard-config
 x.org-bitmaps
 x.org-font-utils
+xf86-input-libinput
 x.org-input-acecad
 x.org-input-aiptek
 x.org-input-elographics
