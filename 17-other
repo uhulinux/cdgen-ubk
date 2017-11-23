@@ -3,17 +3,17 @@
 . 00-common
 
 # add calamares icon to desktop
-echo "Add calamares live install icon to desktop"
+echo "Add calamares install icon to desktop"
 
 chroot "$ROOTDIR" xdg-user-dirs-update
 
-if [ -f "$ROOTDIR"/usr/share/applications/calamares_live.desktop ]; then
+if [ -f "$ROOTDIR"/usr/share/applications/calamares.desktop ]; then
 	mkdir -p "$ROOTDIR"/home/uhu/Asztal
-	cp "$ROOTDIR"/usr/share/applications/calamares_live.desktop "$ROOTDIR"/home/uhu/Asztal/calamares_live.desktop
+	cp "$ROOTDIR"/usr/share/applications/calamares.desktop "$ROOTDIR"/home/uhu/Asztal/calamares_live.desktop
 
-	chmod 755 "$ROOTDIR"/home/uhu/Asztal/calamares_live.desktop
+	chmod 755 "$ROOTDIR"/home/uhu/Asztal/calamares.desktop
 else
-	echo "calamares_live.desktop missing"
+	echo "calamares.desktop missing"
 fi
 
 # isolinux background a rendszerre is
