@@ -9,8 +9,9 @@ chroot "$ROOTDIR" xdg-user-dirs-update
 
 if [ -f "$ROOTDIR"/usr/share/applications/calamares.desktop ]; then
 	mkdir -p "$ROOTDIR"/home/uhu/Asztal
-	cp "$ROOTDIR"/usr/share/applications/calamares.desktop "$ROOTDIR"/home/uhu/Asztal/calamares_live.desktop
+	cp "$ROOTDIR"/usr/share/applications/calamares*.desktop "$ROOTDIR"/home/uhu/Asztal/
 
+	chmod 755 "$ROOTDIR"/home/uhu/Asztal/calamares_live.desktop
 	chmod 755 "$ROOTDIR"/home/uhu/Asztal/calamares.desktop
 else
 	echo "calamares.desktop missing"
