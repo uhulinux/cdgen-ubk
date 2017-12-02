@@ -41,7 +41,7 @@ case $1 in
 		export DESKTOPNAME=LXDE
 		;;
 	lumina)
-		export DESKTOP=lumina
+		export DESKTOP=Lumina-DE
 		export DESKTOPNAME=Lumina-DE
 		;;
 	rescue)
