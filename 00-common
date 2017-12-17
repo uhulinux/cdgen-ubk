@@ -46,7 +46,7 @@ PACKAGES_CD="$WORKDIR"/packages_cd.txt
 
 if [[ -f UHU_RELEASE ]]; then
 	UHU_RELEASE="UHU-Linux $(<UHU_RELEASE) ${DESKTOPNAME}"
-	UHU_RELEASE_FULL="UHU-Linux $(<UHU_RELEASE)-${DESKTOP^^}-${ISODATE//-}"
+	UHU_RELEASE_FULL="UHU-Linux $(<UHU_RELEASE)-${DESKTOP^^}-${ISODATE//-}-$isoarch"
 else
 	echo "Hiányzik a release fájl!"
 fi
