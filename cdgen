@@ -70,8 +70,7 @@ case $1 in
 		fi
 
 		dpkg-query -W -f='${Package} ${Status}\n' | grep installed | sort -u | cut -f1 -d \ > rescue.txt
-		echo "uhu-installer" >> rescue.txt
-		echo "bootloader-theme-uhu-installer" >> rescue.txt
+		echo "calamares" >> rescue.txt
 		;;
 	--help|*)
 		printf '\e[0;31m		Használat: ./cdgen gnome|cinnamon|mate|xfce|kde|lxqt|lxde|rescue [user] [UHU_RELEASE tartalma]

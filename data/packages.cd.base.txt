@@ -285,7 +285,6 @@ udftools
 udisks
 udisks2
 uhu-base
-uhu-installer
 uhu-pixmaps
 uhu-pkg
 uhu-pkgutils
