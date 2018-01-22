@@ -189,6 +189,7 @@ mkinitrd
 mp3info
 mpage
 mplayer
+mysql-server
 ndiswrapper
 neon
 networkmanager
