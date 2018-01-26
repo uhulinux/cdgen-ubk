@@ -62,7 +62,7 @@ case $1 in
 		rm -f UHU_RELEASE
 		echo "$3" > UHU_RELEASE
 		else
-		cp /etc/uhu-release UHU_RELEASE
+		lsb_release -r | sed 's/Release:\t//' > UHU_RELEASE
 		fi
 
 		if [ -f rescue.txt ]; then
