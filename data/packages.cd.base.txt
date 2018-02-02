@@ -47,9 +47,7 @@ db4
 db4-utils
 dbus
 dbus-launch
-dconf-editor
 desktop-file-utils
-d-feet
 dhcpcd
 dhcp-client
 dhcp-server
@@ -90,18 +88,14 @@ fonts-x.org-ttf
 fonts-x.org-type1
 foomatic-db
 foomatic-db-engine
-fortune
-fortune-hu
 fuse
 fuse-ntfs-3g
 fuse-smbnetfs
 fuse-sshfs
 gamin
 gawk
-gconf-editor
 gdb
 gettext
-gettext-tools
 gexif
 gftp
 gftp-gtk
@@ -125,7 +119,6 @@ hashalot
 hddtemp
 hdparm
 hplip
-htop
 imagemagick
 inetutils
 intltool
