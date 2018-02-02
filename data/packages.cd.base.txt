@@ -112,7 +112,6 @@ lesspipe
 libreoffice
 links
 linuxconsole
-linux-firmware (kernel)
 logrotate
 lsb-release
 lsof
@@ -231,7 +230,6 @@ xdg-user-dirs-gtk
 xdg-utils
 xinit
 x.org-bitmaps
-x.org-font-utils (x.org-server)
 x.org-input-acecad
 x.org-input-aiptek
 x.org-input-elographics
