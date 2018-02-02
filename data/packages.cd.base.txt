@@ -3,7 +3,6 @@ a2ps
 acpitool
 antiword
 apmd
-apt
 at
 avahi
 bash-completion
@@ -18,9 +17,7 @@ bluez-firmware
 bluez-hcidump
 bonnie++
 bridge-utils
-bzip2
 cabextract
-cairo
 calamares
 cdctl
 cdrdao
@@ -36,7 +33,6 @@ cups
 curlftpfs
 cursor-theme-bluecurve
 cursor-theme-x.org
-db4
 db4-utils
 dbus
 dbus-launch
@@ -69,7 +65,6 @@ fonts-liberation
 fonts-libertine
 fonts-symbola
 fonts-unicode
-fonts-x.org-base
 fonts-x.org-iso-10646
 fonts-x.org-iso-8859-1
 fonts-x.org-other
@@ -91,12 +86,10 @@ gimp
 git
 glibc-locales
 gparted
-gpg
 gphoto2
 gpm
 gptfdisk
 gqview
-grub
 gtk-stock-icons
 gutenprint
 gvfs
@@ -119,8 +112,7 @@ lesspipe
 libreoffice
 links
 linuxconsole
-linux-firmware
-lmsensors
+linux-firmware (kernel)
 logrotate
 lsb-release
 lsof
@@ -132,10 +124,8 @@ man-pages
 mc
 mcrypt
 memtest86+
-mesa
 min1200w
 minicom
-mkinitrd
 mp3info
 mpage
 mplayer
@@ -153,7 +143,6 @@ nscd
 numlockx
 openipmi
 open-iscsi
-openldap
 openssh
 opensshd
 openvpn
@@ -217,15 +206,12 @@ tzdata
 udftools
 udisks
 uhu-base
-uhu-pixmaps
 uhu-pkgutils
 uhu-sysinfo
 uhu-utils
-uhu-wallpapers-ubk
 uhu-zeroconf
 unzip
 usb-modeswitch
-usermode
 vblade
 vi
 vim
@@ -244,10 +230,8 @@ xdg-user-dirs
 xdg-user-dirs-gtk
 xdg-utils
 xinit
-xkb-utils
-xkeyboard-config
 x.org-bitmaps
-x.org-font-utils
+x.org-font-utils (x.org-server)
 x.org-input-acecad
 x.org-input-aiptek
 x.org-input-elographics
