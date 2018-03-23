@@ -62,6 +62,7 @@ file
 findutils
 firefox
 flashplayer
+freshplayerplugin
 fonts-bitstream-vera
 fonts-dejavu
 fonts-freeware
