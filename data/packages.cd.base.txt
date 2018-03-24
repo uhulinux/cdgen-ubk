@@ -88,7 +88,6 @@ gawk
 gconf-editor
 gettext
 gettext-tools
-gexif
 gftp
 gftp-gtk
 ghostscript
@@ -115,7 +114,6 @@ inetutils
 intltool
 iperf
 iproute2
-ipsec-tools
 iptables
 iputils
 irda-utils
