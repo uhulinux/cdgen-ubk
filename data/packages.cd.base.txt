@@ -282,6 +282,7 @@ x.org-input-vmmouse
 x.org-input-void
 x.org-server
 x.org-utils
+x.org-video-amgpu
 x.org-video-apm
 x.org-video-ark
 x.org-video-ast
