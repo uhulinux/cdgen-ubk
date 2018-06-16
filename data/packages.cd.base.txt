@@ -89,7 +89,6 @@ gconf-editor
 gettext
 gettext-tools
 gftp
-gftp-gtk
 ghostscript
 gimp
 git
@@ -115,7 +114,6 @@ intltool
 iperf
 iproute2
 iptables
-iputils
 irda-utils
 iscsitarget
 isdn4k-utils
@@ -146,7 +144,6 @@ mcrypt
 mdadm
 memtest86+
 mesa
-min1200w
 minicom
 mkinitrd
 mp3info
@@ -207,7 +204,6 @@ shadow
 shash
 simple-scan
 smartmontools
-smp-utils
 sox
 squashfs-tools
 strace
@@ -222,7 +218,6 @@ tar
 tcpdump
 tcp-wrappers
 terminfo
-traceroute
 tree
 trunc
 ttyrec

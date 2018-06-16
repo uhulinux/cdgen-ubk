@@ -11,11 +11,21 @@ jpeg-tools -> jpeg-turbo-tools
 ubk1 -> ubk2
 
 kidobva:
-iptables-utils
-mailcount
-mailx
-net-tools
-ntalk
-subversion-tools
-uhu-initscripts
-x.org-apps
+  iptables-utils
+  mailcount
+  mailx
+  net-tools
+  ntalk
+  subversion-tools
+  uhu-initscripts
+  x.org-apps
+
+ubk2 -> ubk3
+
+kidobva:
+  gftp-gtk
+  iputils
+  min1200w
+  smp-utils
+  traceroute
+
