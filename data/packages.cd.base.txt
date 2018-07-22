@@ -34,7 +34,6 @@ cron
 cryptsetup
 cups
 curlftpfs
-cursor-theme-bluecurve
 cursor-theme-x.org
 dbus
 dbus-launch
@@ -183,7 +182,6 @@ psacct
 psmisc
 psutils
 pwgen
-python
 rar
 rdate
 rdesktop
@@ -294,7 +292,6 @@ x.org-video-nouveau
 x.org-video-nv
 x.org-video-rendition
 x.org-video-siliconmotion
-x.org-video-sis
 x.org-video-sisusb
 x.org-video-v4l
 x.org-video-vesa

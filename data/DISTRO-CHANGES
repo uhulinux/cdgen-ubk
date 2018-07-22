@@ -23,9 +23,11 @@ kidobva:
 ubk2 -> ubk3
 
 kidobva:
+  cursor-theme-bluecurve
   gftp-gtk
   iputils
   min1200w
   smp-utils
   traceroute
+  x.org-video-sis
 
