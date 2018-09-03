@@ -246,7 +246,6 @@ wget
 which
 whois
 wireless-tools
-words
 wvdial
 xauth
 xbindkeys
