@@ -190,6 +190,7 @@ recode
 reiser4progs
 reiserfsprogs
 rpcbind
+rp-pppoe
 rsync
 samba-server
 sbm
