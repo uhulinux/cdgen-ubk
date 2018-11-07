@@ -222,7 +222,6 @@ trunc
 ttyrec
 tzdata
 udftools
-udisks
 udisks2
 uhu-base
 uhu-pixmaps
