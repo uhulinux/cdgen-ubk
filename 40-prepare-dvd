@@ -31,13 +31,13 @@ menu color cmdline 0 #ffffffff #00000000
 label UHU-Linux
 	menu label UHU-Linux
     kernel /boot/kernel.32
-    append initrd=/boot/initrd.32 boot=livecd:$cdlabel
+    append initrd=/boot/initrd.32 boot=livecd:$cdlabel loglevel=3
 menu default
 
 label UHU-Linux nomodeset
 	menu label UHU-Linux nomodeset
     kernel /boot/kernel.32
-    append initrd=/boot/initrd.32 boot=livecd:$cdlabel nomodeset
+    append initrd=/boot/initrd.32 boot=livecd:$cdlabel loglevel=3 nomodeset
 
 label memtest
 	menu label Memtest
