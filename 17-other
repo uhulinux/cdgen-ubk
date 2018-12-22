@@ -18,7 +18,7 @@ else
 fi
 
 # isolinux background a rendszerre is
-cp -a -f "$DATADIR/isolinux-bg/$DESKTOP.png" "$ROOTDIR/usr/share/backgrounds/UHU/$DESKTOP.png"
+#cp -a -f "$DATADIR/isolinux-bg/$DESKTOP.png" "$ROOTDIR/usr/share/backgrounds/UHU/$DESKTOP.png"
 
 # default user settings
 echo "Set default user settings"

@@ -2,91 +2,85 @@
 
 . 00-common
 
-mkdir -p "$DVDDIR"
+# mappagyártás
+mkdir -p "$DVDDIR"/{efi/boot,themes,boot/grub/i386-pc}
 
-mkdir -p "$DVDDIR"/boot
+# grub háttérkép
+cp $ROOTDIR/usr/share/backgrounds/UHU/uhu-grub-bg-dark.png $DVDDIR/themes/
+# grub.cfg
+cp $DATADIR/grub.cfg $DVDDIR/boot/grub/grub.cfg
+# grub font
+cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
+# grub-pc fájlok
+cp $ROOTDIR/usr/lib/grub/i386-pc/* $DVDDIR/boot/grub/i386-pc/
 
-cat <<END >"$DVDDIR/isolinux.cfg"
+# bootolható fájlok
+cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/memtest"
 
-default vesamenu.c32
-timeout 100
-
-F1 help.txt
-
-menu title $UHU_RELEASE ($ISODATE)
-menu background /boot/themes/bg.png
-menu tabmsg Press [F1] for help, or [Tab] to edit options
-
-menu color border 0 #ffffffff #00000000
-menu color sel 7 #ffffffff #ff000000
-menu color title 0 #ffffffff #00000000
-menu color tabmsg 0 #ffffffff #00000000
-menu color unsel 0 #ffffffff #00000000
-menu color hotsel 0 #ff000000 #ffffffff
-menu color hotkey 7 #ffffffff #ff000000
-menu color timeout_msg 0 #ffffffff #00000000
-menu color timeout 0 #ffffffff #00000000
-menu color cmdline 0 #ffffffff #00000000
-
-label UHU-Linux
-	menu label UHU-Linux
-    kernel /boot/kernel.32
-    append initrd=/boot/initrd.32 boot=livecd:$cdlabel loglevel=3
-menu default
-
-label UHU-Linux nomodeset
-	menu label UHU-Linux nomodeset
-    kernel /boot/kernel.32
-    append initrd=/boot/initrd.32 boot=livecd:$cdlabel loglevel=3 nomodeset
-
-label memtest
-	menu label Memtest
-    kernel /boot/memtest
-END
-
-cat <<END > "$DVDDIR/boot/help.txt"
-Nyelv kivalasztasa:
- A nyelv kivalasztasahoz adjuk meg a kovetkezo boot parameterek egyiket:
- lang=xx ahol xx erteke hu, en vagy de
-  vagy
- LANG=hu_HU.UTF-8 formatumban barmilyen egyeb nyelv
-
- A beallitas megorzodik a merevlemezen az /etc/sysconfig/locale fajlban, igy legkozelebb mar nincs szukseg a nyelv ujboli megadasara.
-
-Select languge:
- To select other language then hungarian set one of the following boot parameter:
- lang=xx where xx is hu, en or de
-  OR
- LANG=en_US.UTF-8 for any other settings
-
- The settings will be saved to /etc/sysconfig/locale.
-END
-
-
-
-mkdir -p "$DVDDIR/boot"
 if [ "$mode" == "64" ]; then
 	if [ -L "$ROOTDIR"/boot/kernel.x86_64 ]; then
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/boot/kernel.32
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/boot/initrd.32
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/kernel
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/initrd
 	else
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.x86_64) "$DVDDIR"/boot/kernel.32
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.x86_64.cpio.gz) "$DVDDIR"/boot/initrd.32
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.x86_64) "$DVDDIR"/kernel
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.x86_64.cpio.gz) "$DVDDIR"/initrd
 	fi
+	platform="x86_64-efi"
+	efigrub_img="bootx64.efi"
 else
 	if [ -L "$ROOTDIR"/boot/kernel.i386 ]; then
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.i386) "$DVDDIR"/boot/kernel.32
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.i386.gz) "$DVDDIR"/boot/initrd.32
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.i386) "$DVDDIR"/kernel
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.i386.gz) "$DVDDIR"/initrd
 	else
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.i386) "$DVDDIR"/boot/kernel.32
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.i386.cpio.gz) "$DVDDIR"/boot/initrd.32
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.i386) "$DVDDIR"/kernel
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.i386.cpio.gz) "$DVDDIR"/initrd
 	fi
+    platform="i386-efi"
+    efigrub_img="bootia32.efi"
 fi
-mkdir -p "$DVDDIR/boot/themes"
-mkdir -p "$DVDDIR/boot/isolinux"
-cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/boot/memtest"
-cp -a "$ROOTDIR/usr/share/syslinux/isolinux.bin" "$DVDDIR/boot/isolinux/isolinux.bin"
-for i in ldlinux.c32 libcom32.c32 libutil.c32 vesamenu.c32; do
-	cp -a "$ROOTDIR/usr/share/syslinux/$i" "$DVDDIR/boot/isolinux/"
-done
-cp -a -f "$DATADIR/isolinux-bg/$DESKTOP.png" "$DVDDIR/boot/themes/bg.png"
+
+# efi grub fájlok
+mkdir -p $DVDDIR/boot/grub/${platform}
+cp $ROOTDIR/usr/lib/grub/${platform}/* $DVDDIR/boot/grub/${platform}/
+
+# grub i386-pc core image
+chroot $ROOTDIR \
+	grub-mkimage \
+	-d /usr/lib/grub/i386-pc \
+	-o /tmp/core.img \
+	-O i386-pc \
+	-p /boot/grub \
+	biosdisk \
+	iso9660
+
+# cdboot és core image összefűzése az El Torito -nek legacy boothoz
+cat $ROOTDIR/usr/lib/grub/i386-pc/cdboot.img \
+	$ROOTDIR/tmp/core.img >$DVDDIR/boot/grub/i386-pc/legacyeltorito.img
+
+# tisztítás
+rm $ROOTDIR/tmp/core.img
+
+# efi boot
+
+echo "Building ${efigrub_img}"
+
+chroot $ROOTDIR \
+	grub-mkimage \
+	-d /usr/lib/grub/${platform} \
+	-o /tmp/${efigrub_img} \
+	-O ${platform} \
+	-p /boot/grub \
+	iso9660
+
+cp $ROOTDIR/tmp/${efigrub_img} $DVDDIR/efi/boot/
+
+MOUNTPOINT=$(mktemp -d)
+
+# efieltorito.img gyártása
+truncate -s 4M $DVDDIR/efieltorito.img
+mkfs.fat -n MISO_EFI $DVDDIR/efieltorito.img &>/dev/null
+mount -o loop $DVDDIR/efieltorito.img "${MOUNTPOINT}"
+mkdir -p "${MOUNTPOINT}"/efi/boot
+mv $ROOTDIR/tmp/${efigrub_img} ${MOUNTPOINT}/efi/boot/
+umount ${MOUNTPOINT}
+rmdir ${MOUNTPOINT}
