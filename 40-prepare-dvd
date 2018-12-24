@@ -3,14 +3,16 @@
 . 00-common
 
 # mappagyártás
-mkdir -p "$DVDDIR"/{efi/boot,boot/grub/i386-pc,boot/grub/themes/uhu}
+mkdir -p "$DVDDIR"/{efi/boot,boot}
 
 # grub téma a starfield témából
-cp $ROOTDIR/usr/share/grub/themes/starfield/* $DVDDIR/boot/grub/themes/uhu/
+cp -r $DATADIR/grub $DVDDIR/boot/grub
 # uhu grub háttérkép
-cp -f $ROOTDIR/usr/share/backgrounds/UHU/uhu-grub-bg-dark.png $DVDDIR/boot/grub/themes/uhu/starfield.png
-# grub.cfg
-cp $DATADIR/grub.cfg $DVDDIR/boot/grub/grub.cfg
+background=uhu-grub-bg-dark.png
+if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
+background=ubk3.png
+fi
+cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/themes/uhu/background.png
 # grub font
 cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
 # grub-pc fájlok
