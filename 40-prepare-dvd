@@ -5,14 +5,14 @@
 # mappagyártás
 mkdir -p "$DVDDIR"/{efi/boot,boot}
 
-# grub téma a starfield témából
 cp -r $DATADIR/grub $DVDDIR/boot/grub
-# uhu grub háttérkép
+
 background=uhu-grub-bg-dark.png
 if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
-background=ubk3.png
+    background=ubk3.png
 fi
-cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/themes/uhu/background.png
+# grub háttér
+cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/background.png
 # grub font
 cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
 # grub-pc fájlok
