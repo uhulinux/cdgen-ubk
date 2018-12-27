@@ -3,9 +3,7 @@
 . 00-common
 
 # mappagyártás
-mkdir -p "$DVDDIR"/{efi/boot,boot}
-
-cp -r $DATADIR/grub $DVDDIR/boot/grub
+mkdir -p "$DVDDIR"/{efi/boot,boot/grub/i386-pc}
 
 background=uhu-grub-bg-dark.png
 if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
@@ -13,6 +11,8 @@ if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
 fi
 # grub háttér
 cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/background.png
+# grub.cfg
+cp $DATADIR/grub/grub.cfg $DVDDIR/boot/grub/grub.cfg
 # grub font
 cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
 # grub-pc fájlok
