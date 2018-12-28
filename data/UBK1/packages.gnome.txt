@@ -14,7 +14,6 @@ gnome-u2ps
 gnome-weather
 gthumb
 kino
-lightdm-gtk-greeter
 planner
 sound-juicer
 tracker-plugin-firefox

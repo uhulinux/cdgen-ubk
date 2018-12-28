@@ -2,19 +2,6 @@
 
 . 00-common
 
-case `basename $0` in
-	cdgen)
-		export mode="32"
-		export isoarch="i386"
-		sed -i "s/amd64/i386/g" data/sources.list
-		;;
-	cdgen64)
-		export mode="64"
-		export isoarch="amd64"
-		sed -i "s/i386/amd64/g" data/sources.list
-		;;
-esac
-
 case $1 in
 	gnome)
 		export DESKTOP=gnome
@@ -52,25 +39,25 @@ case $1 in
 		export DESKTOP=rescue
 		export DESKTOPNAME=rescue
 
-		if [ -n "$2" ]; then
-		USER="$2"
-		else
-		USER="uhu"
-		fi
+if [ -n "$2" ]; then
+	USER="$2"
+else
+	USER="uhu"
+fi
 
-		if [ -n "$3" ]; then
-		rm -f UHU_RELEASE
-		echo "$3" > UHU_RELEASE
-		else
-		lsb_release -r | sed 's/Release:\t//' > UHU_RELEASE
-		fi
+if [ -n "$3" ]; then
+	rm -f UHU_RELEASE
+	echo "$3" > UHU_RELEASE
+else
+	lsb_release -r | sed 's/Release:\t//' > UHU_RELEASE
+fi
+	
+if [ -f rescue.txt ]; then
+	rm -f rescue.txt
+fi
 
-		if [ -f rescue.txt ]; then
-			rm -f rescue.txt
-		fi
-
-		dpkg-query -W -f='${Package} ${Status}\n' | grep installed | sort -u | cut -f1 -d \ > rescue.txt
-		echo "calamares" >> rescue.txt
+dpkg-query -W -f='${Package} ${Status}\n' | grep installed | sort -u | cut -f1 -d \ > rescue.txt
+echo "calamares" >> rescue.txt
 		;;
 	--help|*)
 		printf '\e[0;31m		Használat: ./cdgen gnome|cinnamon|mate|xfce|kde|lxqt|lxde|rescue [user] [UHU_RELEASE tartalma]
@@ -113,7 +100,21 @@ case $1 in
 		;;
 esac
 
+DIST=$(cat UHU_RELEASE)
 mkdir -p $WORKDIR
+
+case `basename $0` in
+	cdgen)
+		export mode="32"
+		export isoarch="i386"
+		sed -i "s/amd64/i386/g" data/$DIST/sources.list
+		;;
+	cdgen64)
+		export mode="64"
+		export isoarch="amd64"
+		sed -i "s/i386/amd64/g" data/$DIST/sources.list
+		;;
+esac
 
 if [ -f packages_cd.txt ]; then
 	rm -f packages_cd.txt
@@ -123,9 +124,9 @@ if [ -f rescue.txt ]; then
 	mv rescue.txt packages_cd.txt
 else
 	cp "$DATADIR"/packages.cd.base.txt $BASEDIR/packages_cd.txt
-	cat "$DATADIR"/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
+	cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
 fi
-
+cp -f "$DATADIR"/$DIST/sources.list "$DATADIR"/sources.list
 for i in [0-9][0-9]-*; do
 	if [ -x "$i" ]; then
 		case "$i" in
