@@ -101,6 +101,12 @@ echo "calamares" >> rescue.txt
 esac
 
 DIST=$(cat UHU_RELEASE)
+
+if [ ! -d data/$DIST ];then
+    echo "Csak UBK1|UBK2|UBK3 lehet az UHU_RELEASE értéke, ami most $DIST!"
+    exit 1
+fi
+
 mkdir -p $WORKDIR
 
 case `basename $0` in
