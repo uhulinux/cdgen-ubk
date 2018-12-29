@@ -10,13 +10,11 @@ gnome-power-manager
 gnome-screensaver
 gnome-session
 gnome-tweak-tool
-gnome-u2ps
 gnome-weather
 gthumb
 kino
 planner
 sound-juicer
-tracker-plugin-firefox
 tracker-plugin-nautilus
 tracker-plugin-thunderbird
 vinagre
