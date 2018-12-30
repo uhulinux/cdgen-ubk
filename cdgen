@@ -2,75 +2,72 @@
 
 . 00-common
 
-case $1 in
-	gnome)
-		export DESKTOP=gnome
-		export DESKTOPNAME=GNOME
-		;;
-	cinnamon)
-		export DESKTOP=cinnamon
-		export DESKTOPNAME=Cinnamon
-		;;
-	mate)
-		export DESKTOP=mate
-		export DESKTOPNAME=MATE
-		;;
-	xfce)
-		export DESKTOP=xfce
-		export DESKTOPNAME=XFCE
-		;;
-	kde)
-		export DESKTOP=kde
-		export DESKTOPNAME=KDE
-		;;
-	lxqt)
-		export DESKTOP=lxqt
-		export DESKTOPNAME=LXQt
-		;;
-	lxde)
-		export DESKTOP=lxde
-		export DESKTOPNAME=LXDE
-		;;
-	lumina)
-		export DESKTOP=Lumina-DE
-		export DESKTOPNAME=Lumina-DE
-		;;
-	rescue)
-		export DESKTOP=rescue
-		export DESKTOPNAME=rescue
-
-if [ -n "$2" ]; then
-	USER="$2"
-else
-	USER="uhu"
-fi
-
-if [ -n "$3" ]; then
-	rm -f UHU_RELEASE
-	echo "$3" > UHU_RELEASE
-else
-	lsb_release -r | sed 's/Release:\t//' > UHU_RELEASE
-fi
-	
-if [ -f rescue.txt ]; then
-	rm -f rescue.txt
-fi
-
-dpkg-query -W -f='${Package} ${Status}\n' | grep installed | sort -u | cut -f1 -d \ > rescue.txt
-echo "calamares" >> rescue.txt
-		;;
-	--help|*)
+function hiba (){
+		echo $1
 		helptext=$(cat $DATADIR/help.txt)
 		printf "\e[0;31m $helptext\n"
 		exit
-		;;
-esac
+}
+
+if [ -n "$1" ]; then
+	if [ "$1" == "--help" ];then
+		hiba
+	else
+		DIST=$1
+		if [ ! -d data/$DIST ];then
+			hiba "Csak UBK1|UBK2|UBK3 lehet az UHU_RELEASE értéke, ami most $DIST!"
+		else
+			rm -f UHU_RELEASE
+			echo "$1" > UHU_RELEASE
+		fi
+    fi
+fi
 
 DIST=$(cat UHU_RELEASE)
 
-if [ ! -d data/$DIST ];then
-    echo "Csak UBK1|UBK2|UBK3 lehet az UHU_RELEASE értéke, ami most $DIST!"
-    exit 1
+if [ -n "$2" ]; then
+    case $2 in
+		gnome)
+			export DESKTOP=gnome
+			export DESKTOPNAME=GNOME
+			;;
+		cinnamon)
+			export DESKTOP=cinnamon
+			export DESKTOPNAME=Cinnamon
+			;;
+		mate)
+			export DESKTOP=mate
+			export DESKTOPNAME=MATE
+			;;
+		xfce)
+			export DESKTOP=xfce
+			export DESKTOPNAME=XFCE
+			;;
+		kde)
+			export DESKTOP=kde
+			export DESKTOPNAME=KDE
+			;;
+		lxqt)
+			export DESKTOP=lxqt
+			export DESKTOPNAME=LXQt
+			;;
+		lxde)
+			export DESKTOP=lxde
+			export DESKTOPNAME=LXDE
+			;;
+		lumina)
+			export DESKTOP=Lumina-DE
+			export DESKTOPNAME=Lumina-DE
+			;;
+			*)
+			hiba "Hibás desktop paraméter, mely most a $2!"
+			printf "\e[0;31m $helptext\n"
+			exit
+			;;
+	esac
+else
+	export DESKTOP=mate
+	export DESKTOPNAME=MATE
 fi
 
 mkdir -p $WORKDIR
@@ -92,13 +89,10 @@ if [ -f packages_cd.txt ]; then
 	rm -f packages_cd.txt
 fi
 
-if [ -f rescue.txt ]; then
-	mv rescue.txt packages_cd.txt
-else
-	cp "$DATADIR"/packages.cd.base.txt $BASEDIR/packages_cd.txt
-	cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
-fi
+cp "$DATADIR"/packages.cd.base.txt $BASEDIR/packages_cd.txt
+cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
 cp -f "$DATADIR"/$DIST/sources.list "$DATADIR"/sources.list
+
 for i in [0-9][0-9]-*; do
 	if [ -x "$i" ]; then
 		case "$i" in

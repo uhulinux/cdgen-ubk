@@ -2,18 +2,8 @@
 
 . 00-common
 
-if [[ $DESKTOP = "rescue" ]]; then
-	echo "Create users: $USER, root"
-	chroot "$ROOTDIR" useradd -m "$USER"
-	echo "Set password for $USER"
-	chroot "$ROOTDIR" passwd -d "$USER" &> /dev/null
-	echo "Delete root's password"
-	chroot "$ROOTDIR" passwd -d root &> /dev/null
-else
-	echo "Create users: uhu, root"
-	chroot "$ROOTDIR" useradd -m uhu
-	echo "Delete passwords for uhu, root"
-	chroot "$ROOTDIR" passwd -d uhu &> /dev/null
-	chroot "$ROOTDIR" passwd -d root &> /dev/null
-fi
-
+echo "Create users: uhu, root"
+chroot "$ROOTDIR" useradd -m uhu
+echo "Delete passwords for uhu, root"
+chroot "$ROOTDIR" passwd -d uhu &> /dev/null
+chroot "$ROOTDIR" passwd -d root &> /dev/null
