@@ -18,6 +18,7 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 	echo "Set lightdm autologin"
 	sed -i -e "s/#pam-service=lightdm/pam-service=lightdm-autologin/" "$ROOTDIR"/etc/lightdm/lightdm.conf
 	sed -i -e "s/#autologin-user=.*/autologin-user=uhu/" "$ROOTDIR"/etc/lightdm/lightdm.conf
+	sed -i -e "s/#autologin-session=.*/autologin-session=$DESKTOP/" "$ROOTDIR"/etc/lightdm/lightdm.conf
 	# enable lightdm
 	echo "Enable lightdm"
 	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
