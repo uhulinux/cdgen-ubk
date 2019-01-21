@@ -89,7 +89,7 @@ if [ -f packages_cd.txt ]; then
 	rm -f packages_cd.txt
 fi
 
-cp "$DATADIR"/packages.cd.base.txt $BASEDIR/packages_cd.txt
+cp "$DATADIR"/$DIST/packages.cd.base.txt $BASEDIR/packages_cd.txt
 cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
 cp -f "$DATADIR"/$DIST/sources.list "$DATADIR"/sources.list
 
