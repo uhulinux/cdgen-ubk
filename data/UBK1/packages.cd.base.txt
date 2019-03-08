@@ -147,7 +147,7 @@ minicom
 mkinitrd
 mp3info
 mpage
-mplayer-gui
+mplayer
 ndiswrapper
 networkmanager
 networkmanager-openvpn
