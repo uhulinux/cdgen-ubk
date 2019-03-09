@@ -256,7 +256,6 @@ xfsprogs
 xinit
 xkb-utils
 xkeyboard-config
-x.org-bitmaps
 x.org-font-utils
 x.org-input-acecad
 x.org-input-aiptek
