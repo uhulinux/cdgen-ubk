@@ -74,14 +74,14 @@ mkdir -p $WORKDIR
 
 case `basename $0` in
 	cdgen)
-		export mode="32"
-		export isoarch="i386"
-		sed -i "s/amd64/i386/g" data/$DIST/sources.list
-		;;
-	cdgen64)
 		export mode="64"
 		export isoarch="amd64"
 		sed -i "s/i386/amd64/g" data/$DIST/sources.list
+		;;
+	cdgen32)
+		export mode="32"
+		export isoarch="i386"
+		sed -i "s/amd64/i386/g" data/$DIST/sources.list
 		;;
 esac
 
