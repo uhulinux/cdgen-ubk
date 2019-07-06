@@ -37,8 +37,8 @@ esac
 dd if=/dev/zero of="$IMG" bs=1 seek="$SIZE" count=0
 
 losetup "$loopdev" "$IMG"
-mkfs.ext4 -text4 -m2 -LUHU "$loopdev"
-tune2fs -i0 -c0 -m2 -LUHU "$loopdev"
+mkfs.ext4 -text4 -m2 -L"$cdlabel" "$loopdev"
+tune2fs -i0 -c0 -m2 -L"$cdlabel" "$loopdev"
 
 mkdir -p "$ROOTDIR"
 mount "$loopdev" "$ROOTDIR"
