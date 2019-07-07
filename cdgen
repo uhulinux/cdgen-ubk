@@ -9,24 +9,36 @@ function hiba (){
 		exit
 }
 
-if [ -n "$1" ]; then
-	if [ "$1" == "--help" ];then
-		hiba
-	else
-		DIST=$1
-		if [ ! -d data/$DIST ];then
-			hiba "Csak UBK1|UBK2|UBK3 lehet az UHU_RELEASE értéke, ami most $DIST!"
-		else
-			rm -f UHU_RELEASE
-			echo "$1" > UHU_RELEASE
-		fi
-    fi
+for i in "$@"
+do
+case $i in
+    UBK*)
+        DIST="$i"
+        DISTVER="${i/UBK/}"
+        export DIST=$i
+        export DISTVER="${i/UBK/}"
+        shift
+    ;;
+    gnome|cinnamon|mate|xfce|kde|lxqt|lxde|Lumina-DE)
+        DESKTOP="$i"
+        shift
+    ;;
+    --help)
+        hiba
+        shift
+    ;;
+    *)
+    	hiba
+    ;;
+esac
+done
+
+if [ ! -d data/$DIST ];then
+	hiba "Csak UBK1|UBK2|UBK3 lehet a disztribúció, ami most $DIST!"
 fi
 
-DIST=$(cat UHU_RELEASE)
-
-if [ -n "$2" ]; then
-    case $2 in
+if [ -n "$DESKTOP" ]; then
+    case $DESKTOP in
 		gnome)
 			export DESKTOP=gnome
 			export DESKTOPNAME=GNOME
@@ -84,6 +96,10 @@ case `basename $0` in
 		sed -i "s/amd64/i386/g" data/$DIST/sources.list
 		;;
 esac
+
+export UHU_RELEASE="UHU-Linux ${DIST} ${DESKTOPNAME}"
+export UHU_RELEASE_FULL="UHU-Linux ${DIST}-${DESKTOP^^}-${ISODATE//-}-$isoarch"
+export release_file="${UHU_RELEASE_FULL// /-}"
 
 if [ -f packages_cd.txt ]; then
 	rm -f packages_cd.txt

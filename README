@@ -1,10 +1,8 @@
 Használat: ./cdgen  [UBK1|UBK2|UBK3] [gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina]
 
 64 bites isót készít, 32 bites isóhoz az indítás a cdgen32 paranccsal megy, ugyanígy.
-Az első megadható paraméter a disztribúció neve.
-A másodikként megadható a desktop neve, de csak akkor, ha van első is.
-Paraméterek nélkül MATE desktop lesz generálva, a disztribúció meg az UHU_RELEASE fájl
-tartalma lesz.
+Az első paraméter a disztribúció neve, ami kötelező.
+A másodikként megadható a desktop neve, ha nincs megadva, a desktop MATE lesz.
 
 Adatfájlok:
 
@@ -33,9 +31,9 @@ packages.lxde.txt: LXDE csomaglista
 packages.lumina.txt: Lumina-DE csomaglista
 sources.list: sources.list az apt-hoz
 
-Az iso neve  az UHU_RELEASE fájl tartalma lesz,
-kiegészítve a desktop nevével és az aktuális dátummal, az "UHU-Linux" stringhez fűzve.
-Így ha az UHU_RELEASE tartalma "UBK3" (idézőjelek nélkül) és a desktop neve mate,
+Az iso neve a DIST tartalma lesz, kiegészítve a desktop nevével és az aktuális dátummal,
+az "UHU-Linux" stringhez fűzve.
+Így ha a DIST tartalma "UBK3" (idézőjelek nélkül) és a desktop neve mate,
 akkor az iso neve UHU-Linux-UBK3-MATE-20151018.iso lesz.
 
 depends:

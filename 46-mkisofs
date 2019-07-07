@@ -1,6 +1,7 @@
 #!/bin/bash -eu
 
 . 00-common
+
 # copy img
 cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
 cd "$DVDDIR/"
