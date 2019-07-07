@@ -45,6 +45,7 @@ PACKAGES_ALL="$WORKDIR"/packages_all.txt
 PACKAGES_CD="$WORKDIR"/packages_cd.txt
 
 if [[ -f UHU_RELEASE ]]; then
+    DIST=$(<UHU_RELEASE)
 	UHU_RELEASE="UHU-Linux $(<UHU_RELEASE) ${DESKTOPNAME}"
 	UHU_RELEASE_FULL="UHU-Linux $(<UHU_RELEASE)-${DESKTOP^^}-${ISODATE//-}-$isoarch"
 else
