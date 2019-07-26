@@ -8,6 +8,10 @@ umount    "$ROOTDIR/sys"	2>/dev/null || true
 umount    "$ROOTDIR/dev"	2>/dev/null || true
 umount    "$ROOTDIR/tmp"	2>/dev/null || true
 umount -d "$ROOTDIR/mnt"	2>/dev/null || true
-umount -d "$ROOTDIR"		2>/dev/null || true
 
-mksquashfs "$IMG" "$ROIMG" -b 1048576 -comp xz -noappend
+if [ $DISTVER -gt 2 ]; then
+    mksquashfs "$ROOTDIR" "$ROIMG" -b 1048576 -comp xz -noappend
+else
+    umount -d "$ROOTDIR"		2>/dev/null || true
+    mksquashfs "$IMG" "$ROIMG" -b 1048576 -comp xz -noappend
+fi

@@ -4,6 +4,9 @@
 
 # mappagyártás
 mkdir -p "$DVDDIR"/{efi/boot,boot/grub/i386-pc}
+if [ $DISTVER -gt 2 ]; then
+    mkdir -p "$DVDDIR"/LiveOS
+fi
 
 background=uhu-grub-bg-dark.png
 if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
@@ -12,13 +15,10 @@ fi
 # grub háttér
 cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/background.png
 # grub.cfg
-if [ $DISTVER -gt 2 ]; then
-# storage=$(findfs LABEL=UHU)
-# rootuuid=$(blkid $storage -s UUID -o value)
-rootuuid=$(blkid $loopdev -s UUID -o value)
-fi
 cp $DATADIR/grub/grub.cfg $DVDDIR/boot/grub/grub.cfg
-sed -i -e "s#livecd:UHU-Linux-Live#UUID=$rootuuid init=/usr/lib/systemd/systemd#g" $DVDDIR/boot/grub/grub.cfg
+if [ $DISTVER -gt 2 ]; then
+    sed -i -e "s#livecd:UHU-Linux-Live#live:LABEL=UHU-Linux-Live#g" $DVDDIR/boot/grub/grub.cfg
+fi
 # grub font
 cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
 # grub-pc fájlok

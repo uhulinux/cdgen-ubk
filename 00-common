@@ -37,7 +37,7 @@ ISODIR="$BASEDIR/ISO"
 ISODATE=$(date '+%F')
 
 IMG_NAME="uhulinux.img"
-ROIMG_NAME="uhulinux.roimg"
+ROIMG_NAME="squashfs.img"
 IMG="$WORKDIR/$IMG_NAME"
 ROIMG="$WORKDIR/$ROIMG_NAME"
 
