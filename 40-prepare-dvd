@@ -29,21 +29,21 @@ cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/memtest"
 
 if [ "$mode" == "64" ]; then
 	if [ -L "$ROOTDIR"/boot/kernel.x86_64 ]; then
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/kernel
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/initrd
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/kernel
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/initrd
 	else
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.x86_64) "$DVDDIR"/kernel
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.x86_64.cpio.gz) "$DVDDIR"/initrd
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.x86_64) "$DVDDIR"/kernel
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.x86_64.cpio.gz) "$DVDDIR"/initrd
 	fi
 	platform="x86_64-efi"
 	efigrub_img="bootx64.efi"
 else
 	if [ -L "$ROOTDIR"/boot/kernel.i386 ]; then
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.i386) "$DVDDIR"/kernel
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.i386.gz) "$DVDDIR"/initrd
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.i386) "$DVDDIR"/kernel
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.i386.gz) "$DVDDIR"/initrd
 	else
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.i386) "$DVDDIR"/kernel
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.i386.cpio.gz) "$DVDDIR"/initrd
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.i386) "$DVDDIR"/kernel
+		cp -r "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.i386.cpio.gz) "$DVDDIR"/initrd
 	fi
     platform="i386-efi"
     efigrub_img="bootia32.efi"
