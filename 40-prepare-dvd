@@ -30,7 +30,11 @@ cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/memtest"
 if [ "$mode" == "64" ]; then
 	if [ -L "$ROOTDIR"/boot/kernel.x86_64 ]; then
 		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/kernel
-		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/initrd
+		if [ $DISTVER -gt 2 ]; then
+			cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd) "$DVDDIR"/initrd
+		else
+			cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/initrd
+		fi
 	else
 		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.x86_64) "$DVDDIR"/kernel
 		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.x86_64.cpio.gz) "$DVDDIR"/initrd
