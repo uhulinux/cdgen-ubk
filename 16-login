@@ -53,3 +53,4 @@ if [ -s "$ROOTDIR"/etc/lxdm/lxdm.conf ]; then
 	fi
 fi
 
+chroot "$ROOTDIR" systemctl set-default graphical.target
