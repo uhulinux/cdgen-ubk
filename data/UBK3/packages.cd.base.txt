@@ -145,7 +145,6 @@ mdadm
 memtest86+
 mesa
 minicom
-mkinitrd
 mp3info
 mpage
 mplayer
