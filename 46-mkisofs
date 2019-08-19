@@ -3,15 +3,10 @@
 . 00-common
 
 # copy img
-if [ $DISTVER -gt 2 ]; then
-    cp -al "$ROIMG" "$DVDDIR/LiveOS/"
-    cd "$DVDDIR/LiveOS/"
-    md5sum -b "$ROIMG_NAME" > "$DVDDIR/md5sum"
-else
-    cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
-    cd "$DVDDIR/"
-    md5sum -b "$IMG_NAME" > "$DVDDIR/md5sum"
-fi
+cp -al "$ROIMG" "$DVDDIR/$IMG_NAME"
+cd "$DVDDIR/"
+md5sum -b "$IMG_NAME" > "$DVDDIR/md5sum"
+
 cd -
 
 echo "Creating ISO image..."

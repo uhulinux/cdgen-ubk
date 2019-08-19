@@ -19,16 +19,3 @@ kidobva:
   subversion-tools
   uhu-initscripts
   x.org-apps
-
-ubk2 -> ubk3
-
-kidobva:
-  cursor-theme-bluecurve
-  gftp-gtk
-  iputils
-  min1200w
-  smp-utils
-  traceroute
-  udisks
-  x.org-video-sis
-  words

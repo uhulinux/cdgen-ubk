@@ -4,9 +4,6 @@
 
 # mappagyártás
 mkdir -p "$DVDDIR"/{efi/boot,boot/grub/i386-pc}
-if [ $DISTVER -gt 2 ]; then
-    mkdir -p "$DVDDIR"/LiveOS
-fi
 
 background=uhu-grub-bg-dark.png
 if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
@@ -16,9 +13,6 @@ fi
 cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/background.png
 # grub.cfg
 cp $DATADIR/grub/grub.cfg $DVDDIR/boot/grub/grub.cfg
-if [ $DISTVER -gt 2 ]; then
-    sed -i -e "s#livecd:UHU-Linux-Live#live:LABEL=UHU-Linux-Live#g" $DVDDIR/boot/grub/grub.cfg
-fi
 # grub font
 cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
 # grub-pc fájlok
@@ -30,10 +24,7 @@ cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/memtest"
 if [ "$mode" == "64" ]; then
 	if [ -L "$ROOTDIR"/boot/kernel.x86_64 ]; then
 		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/kernel
-		if [ $DISTVER -gt 2 ]; then
-			cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd) "$DVDDIR"/initrd
-		else
-			cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/initrd
+		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd.x86_64.gz) "$DVDDIR"/initrd
 		fi
 	else
 		cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.x86_64) "$DVDDIR"/kernel
